@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/login.css">
-    <script src="./js/login.js"></script>
+    <link rel="stylesheet" href="css/usuario.css">
+    <script src="./js/usuario.js"></script>
     <title>Login</title>
 </head>
 
@@ -33,7 +33,7 @@
 
                 <!-- Senha -->
                 <div class="divCampo" id="div_campoSenhaLogin">
-                    <button type="button" id="i_buttonEyeSenhaLogin" onclick="exibirSenha()" tabindex="-1">
+                    <button type="button" id="i_buttonEyeSenhaLogin" onclick="exibirSenhaLogin()" tabindex="-1">
                         <div id="iconeEyesLogin">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </div>
@@ -48,6 +48,7 @@
 
             </form>
 
+            <!-- Botão que executa um select no database -->
             <button id="botaoLogin" onclick="validar()">Entrar</button>
 
             <div class="botaoCadastreSe">
@@ -94,7 +95,7 @@
 
                 <!-- Senha -->
                 <div class="divCampo" id="div_campoSenhaCadastro">
-                    <button type="button" id="i_buttonEyeSenhaCadastro" onclick="exibirSenha()" tabindex="-1">
+                    <button type="button" id="i_buttonEyeSenhaCadastro" onclick="exibirSenhaCadastro()" tabindex="-1">
                         <div id="iconeEyesSenhaCadastro">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </div>
@@ -109,7 +110,8 @@
 
                 <!-- Confirmação de Senha -->
                 <div class="divCampo" id="div_campoConfirmacaoSenha">
-                    <button type="button" id="i_buttonEyeConfirmacaoSenha" onclick="exibirSenha()" tabindex="-1">
+                    <button type="button" id="i_buttonEyeConfirmacaoSenha" onclick="exibirConfirmacaoSenha()"
+                        tabindex="-1">
                         <div id="iconeEyesConfirmacaoSenha">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </div>
@@ -124,7 +126,8 @@
 
             </form>
 
-            <button id="botaoCadastrar" onclick="validar()">Cadastrar</button>
+            <!-- Botão que cadastra o usuário no database -->
+            <button id="botaoCadastrar" onclick="cadastrar()">Cadastrar</button>
 
             <div class="botaoFacaLogin">
                 <p>Já possui uma conta?</p>
@@ -134,27 +137,8 @@
 
         </div>
 
-
     </div>
 
 </body>
 
 </html>
-
-<script>
-    function irParaCadastro() {
-        console.log('Função irParaCadastro chamada!');
-        document.getElementById('divContainerLogin').classList.remove('visible');
-        document.getElementById('divContainerLogin').classList.add('hidden');
-        document.getElementById('divContainerCadastreSe').classList.remove('hidden');
-        document.getElementById('divContainerCadastreSe').classList.add('visible');
-    }
-
-    function voltarParaLogin() {
-        console.log('Função voltarParaLogin chamada!');
-        document.getElementById('divContainerCadastreSe').classList.remove('visible');
-        document.getElementById('divContainerCadastreSe').classList.add('hidden');
-        document.getElementById('divContainerLogin').classList.remove('hidden');
-        document.getElementById('divContainerLogin').classList.add('visible');
-    }
-</script>
