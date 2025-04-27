@@ -89,9 +89,9 @@
                 </div>
                 <!-- Email -->
                 <div class="divCampo" id="div_campoEmailCadastro">
-                    <input type="text" id="i_emailCadastro" required autocomplete="off">
+                    <input type="text" id="i_emailCadastro" required autocomplete="new-email">
                     <div class="textoInput-email">
-                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <i class="fa-solid fa-at"></i>
                         <span>Email</span>
                     </div>
                 </div>
@@ -203,6 +203,31 @@
 
         if (emailVar == "" || senhaVar == "") {
             console.log('Erro: Email ou senha em branco.');
+            // Modal de Erro
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-start",
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#000',
+                color: '#fff',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+
+                    
+                    const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                    if (progressBar) {
+                        progressBar.style.background = '#777';
+                    }
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "Ooops...",
+                text: "Preencha todos os campos!",
+            });
             return false;
         }
 
@@ -232,21 +257,63 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    // Redireciona após 1 segundo
-                    Swal.fire({
-                        title: 'Bem-vindo!',
-                        text: 'Login efetuado com sucesso',
-                        icon: 'success',
+                    // Toast
+                    const Toast = Swal.mixin({
                         toast: true,
-                        showConfirmButton: false
-                    })
+                        position: "top-start",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#000',
+
+                        color: '#fff',
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+
+                            
+                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                            if (progressBar) {
+                                progressBar.style.background = '#777';
+                            }
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Sucesso! Bem-vindo de volta!"
+                    });
                     setTimeout(function () {
 
                         window.location = "./index.html";
-                    }, 5000);
+                    }, 3200);
                 });
 
             } else {
+                // Modal de Erro
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-start",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#000',
+                    color: '#fff',
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+
+                        
+                        const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                        if (progressBar) {
+                            progressBar.style.background = '#777';
+                        }
+                    }
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "Ooops...",
+                    text: "Email e/ou senha incorretos!",
+                });
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
@@ -285,6 +352,32 @@
             confirmacaoSenhaVar == ""
         ) {
             console.log('Erro ao cadastrar')
+
+            // Modal de Erro
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#000',
+                color: '#fff',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+
+                    
+                    const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                    if (progressBar) {
+                        progressBar.style.background = '#777';
+                    }
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "Ooops...",
+                text: "Preencha todos os campos!",
+            });
             return false;
         } else {
             console.log('Aguarde')
@@ -308,14 +401,67 @@
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
-                // Validação Atividade 3 ****************
+
                 // if (nomeVar.length > 1 && (emailVar.includes('@') && emailVar.includes('.')) && senhaVar.length > 6 && confirmacaoSenhaVar == senhaVar && cpf.length == 11) {
+
+
                 if (resposta.ok) {
+                    // Toast de Cadastro efetuado com sucesso
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#000',
+
+                        color: '#fff',
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+
+                            
+                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                            if (progressBar) {
+                                progressBar.style.background = '#777';
+                            }
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Sucesso! Bem-vindo de volta!"
+                    });
+
                     setTimeout(() => {
                         voltarParaLogin()
-                    }, "2000");
+                    }, 3000);
 
                 } else {
+                    // Modal de Erro
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#000',
+                        color: '#fff',
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+
+                            
+                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                            if (progressBar) {
+                                progressBar.style.background = '#777';
+                            }
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Ooops...",
+                        text: "Este email já está em uso!",
+                    });
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
 
