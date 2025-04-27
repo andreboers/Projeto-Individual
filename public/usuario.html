@@ -8,8 +8,9 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/usuario.css">
-    <script src="./js/usuario.js"></script>
-    <title>Login</title>
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>GTA | Facul Vice</title>
 </head>
 
 <body>
@@ -49,7 +50,9 @@
             </form>
 
             <!-- Botão que executa um select no database -->
-            <button id="botaoLogin" onclick="validar()">Entrar</button>
+            <button id="botaoLogin" onclick="entrar()">Entrar</button>
+
+
 
             <div class="botaoCadastreSe">
                 <p>Não possui uma conta?</p>
@@ -142,3 +145,186 @@
 </body>
 
 </html>
+
+<script>
+    // Função para visualização da senha do campo "Senha Login"
+    function exibirSenhaLogin() {
+        if (i_senhaLogin.type == "password") {
+            i_senhaLogin.type = "text";
+            iconeEyesLogin.innerHTML = `<i class="fa fa-eye-slash" aria-hidden=" true" style="font-size: 18px;"></i>`;
+        } else if (i_senhaLogin.type == 'text') {
+            i_senhaLogin.type = "password";
+            iconeEyesLogin.innerHTML = `<i class="fa fa-eye" aria-hidden="true"></i>`;
+        }
+    }
+    // Função para visualização da senha do campo "Senha Cadastro"
+    function exibirSenhaCadastro() {
+        if (i_senhaCadastro.type == "password") {
+            i_senhaCadastro.type = "text";
+            iconeEyesSenhaCadastro.innerHTML = `<i class="fa fa-eye-slash" aria-hidden=" true" style="font-size: 18px;"></i>`;
+        } else if (i_senhaCadastro.type == 'text') {
+            i_senhaCadastro.type = "password";
+            iconeEyesSenhaCadastro.innerHTML = `<i class="fa fa-eye" aria-hidden="true"></i>`;
+        }
+    }
+    // Função para visualização da senha do campo "Confirmação de Senha"
+    function exibirConfirmacaoSenha() {
+        if (i_confimacaoSenha.type == "password") {
+            i_confimacaoSenha.type = "text";
+            iconeEyesConfirmacaoSenha.innerHTML = `<i class="fa fa-eye-slash" aria-hidden=" true" style="font-size: 18px;"></i>`;
+        } else if (i_confimacaoSenha.type == 'text') {
+            i_confimacaoSenha.type = "password";
+            iconeEyesConfirmacaoSenha.innerHTML = `<i class="fa fa-eye" aria-hidden="true"></i>`;
+        }
+    }
+
+    // CSS: Função para transição da tela de Login e Cadastro
+    function irParaCadastro() {
+        console.log('Função irParaCadastro chamada!');
+        document.getElementById('divContainerLogin').classList.remove('visible');
+        document.getElementById('divContainerLogin').classList.add('hidden');
+        document.getElementById('divContainerCadastreSe').classList.remove('hidden');
+        document.getElementById('divContainerCadastreSe').classList.add('visible');
+    }
+    function voltarParaLogin() {
+        console.log('Função voltarParaLogin chamada!');
+        document.getElementById('divContainerCadastreSe').classList.remove('visible');
+        document.getElementById('divContainerCadastreSe').classList.add('hidden');
+        document.getElementById('divContainerLogin').classList.remove('hidden');
+        document.getElementById('divContainerLogin').classList.add('visible');
+    }
+
+
+
+    // Função de logar
+    function entrar() {
+        var emailVar = i_emailLogin.value;
+        var senhaVar = i_senhaLogin.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            console.log('Erro: Email ou senha em branco.');
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("http://localhost:3333/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!");
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    // Redireciona após 1 segundo
+                    Swal.fire({
+                        title: 'Bem-vindo!',
+                        text: 'Login efetuado com sucesso',
+                        icon: 'success',
+                        toast: true,
+                        showConfirmButton: false
+                    })
+                    setTimeout(function () {
+
+                        window.location = "./index.html";
+                    }, 5000);
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        })
+            .catch(function (erro) {
+                console.error("Erro na requisição fetch:", erro);
+            });
+
+        return false;
+
+    }
+
+
+
+
+
+    // Funcionando
+    function cadastrar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = i_nomeCadastro.value;
+        var emailVar = i_emailCadastro.value;
+        var senhaVar = i_senhaCadastro.value;
+        var confirmacaoSenhaVar = i_confimacaoSenha.value;
+
+        // Verificando se há algum campo em branco
+        if (
+            nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmacaoSenhaVar == ""
+        ) {
+            console.log('Erro ao cadastrar')
+            return false;
+        } else {
+            console.log('Aguarde')
+        }
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                // Validação Atividade 3 ****************
+                // if (nomeVar.length > 1 && (emailVar.includes('@') && emailVar.includes('.')) && senhaVar.length > 6 && confirmacaoSenhaVar == senhaVar && cpf.length == 11) {
+                if (resposta.ok) {
+                    setTimeout(() => {
+                        voltarParaLogin()
+                    }, "2000");
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+    }
+
+</script>
