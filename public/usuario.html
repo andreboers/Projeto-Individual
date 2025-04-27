@@ -327,14 +327,40 @@
             });
 
         return false;
-
     }
 
 
+    // Validação da senha do cadastro
+    function validarSenha() {
+        // Variável da senha digitada
+        var senhaVar = i_senhaCadastro.value;
+        // Variáveis que verificam o que há na senha digitada 
+        var tamanhoValido = senhaVar.length;
+        var temMaiuscula = senhaVar.toUpperCase() != senhaVar;
+        var temMinuscula = senhaVar.toLowerCase() != senhaVar;
+        var temEspecial = false;
 
+        // For para passar caractere por caractere e verificar se há algum caractere especial, caso não haja, a variável "temEspecial", continua como false
+        for (var i = 0; i < senhaVar.length; i++) {
+            var caractereAtual = senhaVar[i];
+            // Verifica se há um dos caracteres citados "!@#$%^&*()"
+            if (caractereAtual == `!` || caractereAtual == `@` || caractereAtual == `#` || caractereAtual == `$` || caractereAtual == `%` || caractereAtual == `^` || caractereAtual == `&` || caractereAtual == `*` || caractereAtual == `(` || caractereAtual == `)`) {
+                temEspecial = true;
+            }
+        }
+        // Verifica se a senha atende a todos os requisitos listados
+        if (tamanhoValido >= 8 && temMaiuscula && temMinuscula && temEspecial) {
+            // div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: green">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
+            //     minúscula e 1 caractere especial.</span>`;
+            return true;
+        } else {
+            // div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: red">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
+            //     minúscula e 1 caractere especial.</span>`;
+            return false;
+        }
+    }
 
-
-    // Funcionando
+    // Função de Cadastro
     function cadastrar() {
 
         //Recupere o valor da nova input pelo nome do id
@@ -344,13 +370,204 @@
         var senhaVar = i_senhaCadastro.value;
         var confirmacaoSenhaVar = i_confimacaoSenha.value;
 
-        // Verificando se há algum campo em branco
-        if (
-            nomeVar == "" ||
-            emailVar == "" ||
-            senhaVar == "" ||
-            confirmacaoSenhaVar == ""
-        ) {
+        // Validando todos os campos
+        if (nomeVar != "" && emailVar != "" && senhaVar != "" && confirmacaoSenhaVar != "") { // Validação de campos preenchidos
+            if (nomeVar.length > 1) { // Validação de Nome
+                if (emailVar.length > 7 && emailVar.includes('@') && emailVar.includes('.')) { // Validação de Email
+                    if (validarSenha() == true) { // Validação de Senha
+                        if (senhaVar == confirmacaoSenhaVar) { // Validação de coincidencia de Senhas
+
+
+                            // Enviando dados dos campos ao banco de dados
+                            fetch("/usuarios/cadastrar", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    // crie um atributo que recebe o valor recuperado aqui
+                                    // Agora vá para o arquivo routes/usuario.js
+                                    nomeServer: nomeVar,
+                                    emailServer: emailVar,
+                                    senhaServer: senhaVar
+                                }),
+                            })
+                                .then(function (resposta) {
+                                    console.log("resposta: ", resposta);
+
+                                    if (resposta.ok) {
+                                        // Toast de Cadastro efetuado com sucesso
+                                        const Toast = Swal.mixin({
+                                            toast: true,
+                                            position: "top-end",
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            background: '#000',
+                                            color: '#fff',
+                                            timerProgressBar: true,
+                                            didOpen: (toast) => {
+                                                toast.onmouseenter = Swal.stopTimer;
+                                                toast.onmouseleave = Swal.resumeTimer;
+
+
+                                                const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                                                if (progressBar) {
+                                                    progressBar.style.background = '#777';
+                                                }
+                                            }
+                                        });
+                                        Toast.fire({
+                                            icon: "success",
+                                            title: "Sucesso!",
+                                            text: "Cadastro realizado!",
+                                        });
+
+                                        setTimeout(() => {
+                                            voltarParaLogin()
+                                        }, 3000);
+
+                                    } else {
+                                        // Modal de Erro
+                                        const Toast = Swal.mixin({
+                                            toast: true,
+                                            position: "top-end",
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            background: '#000',
+                                            color: '#fff',
+                                            timerProgressBar: true,
+                                            didOpen: (toast) => {
+                                                toast.onmouseenter = Swal.stopTimer;
+                                                toast.onmouseleave = Swal.resumeTimer;
+
+
+                                                const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                                                if (progressBar) {
+                                                    progressBar.style.background = '#777';
+                                                }
+                                            }
+                                        });
+                                        Toast.fire({
+                                            icon: "error",
+                                            title: "Ooops...",
+                                            text: "Este email já está em uso!",
+                                        });
+                                        throw "Houve um erro ao tentar realizar o cadastro!";
+                                    }
+
+                                })
+                                .catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+                                });
+
+                            return false;
+
+
+
+
+                        } else { // Caso as senhas não sejam iguais
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: "top-end",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                background: '#000',
+                                color: '#fff',
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.onmouseenter = Swal.stopTimer;
+                                    toast.onmouseleave = Swal.resumeTimer;
+
+                                    const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                                    if (progressBar) {
+                                        progressBar.style.background = '#777';
+                                    }
+                                }
+                            });
+                            Toast.fire({
+                                icon: "error",
+                                title: "Ooops...",
+                                text: "As senhas não coincidem!",
+                            });
+                        }
+                    } else { // Caso a senha esteja inválida
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            background: '#000',
+                            color: '#fff',
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+
+                                const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                                if (progressBar) {
+                                    progressBar.style.background = '#777';
+                                }
+                            }
+                        });
+                        Toast.fire({
+                            icon: "error",
+                            title: "Ooops...",
+                            text: "Senha inválida!",
+                        });
+                    }
+                } else { // Caso o email seja inválido
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#000',
+                        color: '#fff',
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+
+                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                            if (progressBar) {
+                                progressBar.style.background = '#777';
+                            }
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Ooops...",
+                        text: "Email inválido!",
+                    });
+                }
+            } else { // Caso o nome não seja válido
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#000',
+                    color: '#fff',
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+
+                        const progressBar = toast.querySelector('.swal2-timer-progress-bar');
+                        if (progressBar) {
+                            progressBar.style.background = '#777';
+                        }
+                    }
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "Ooops...",
+                    text: "Nome inválido!",
+                });
+            }
+
+
+        } else {
             console.log('Erro ao cadastrar')
 
             // Modal de Erro
@@ -379,98 +596,8 @@
                 text: "Preencha todos os campos!",
             });
             return false;
-        } else {
-            console.log('Aguarde')
         }
-
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-
-
-                // if (nomeVar.length > 1 && (emailVar.includes('@') && emailVar.includes('.')) && senhaVar.length > 6 && confirmacaoSenhaVar == senhaVar && cpf.length == 11) {
-
-
-                if (resposta.ok) {
-                    // Toast de Cadastro efetuado com sucesso
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        background: '#000',
-                        color: '#fff',
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.onmouseenter = Swal.stopTimer;
-                            toast.onmouseleave = Swal.resumeTimer;
-
-
-                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
-                            if (progressBar) {
-                                progressBar.style.background = '#777';
-                            }
-                        }
-                    });
-                    Toast.fire({
-                        icon: "success",
-                        title: "Sucesso!",
-                        text: "Cadastro realizado!",
-                    });
-
-                    setTimeout(() => {
-                        voltarParaLogin()
-                    }, 3000);
-
-                } else {
-                    // Modal de Erro
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        background: '#000',
-                        color: '#fff',
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.onmouseenter = Swal.stopTimer;
-                            toast.onmouseleave = Swal.resumeTimer;
-
-
-                            const progressBar = toast.querySelector('.swal2-timer-progress-bar');
-                            if (progressBar) {
-                                progressBar.style.background = '#777';
-                            }
-                        }
-                    });
-                    Toast.fire({
-                        icon: "error",
-                        title: "Ooops...",
-                        text: "Este email já está em uso!",
-                    });
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-
-        return false;
+        
     }
 
 </script>
