@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/usuario.css">
     <script src="./js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>GTA | Facul Vice</title>
+    <title>MineTech | Comece agora</title>
 </head>
 
 <body>
@@ -56,8 +56,9 @@
 
             <div class="botaoCadastreSe">
                 <p>Não possui uma conta?</p>
-                <span>Cadastre-se</span>
-                <div id="iconeCadastreSe" onclick="irParaCadastro()"><i class="fa-solid fa-arrow-right"></i></div>
+
+                <div id="iconeCadastreSe" onclick="irParaCadastro()"><span>Cadastre-se</span><i
+                        class="fa-solid fa-arrow-right"></i></div>
             </div>
 
         </div>
@@ -134,8 +135,9 @@
 
             <div class="botaoFacaLogin">
                 <p>Já possui uma conta?</p>
-                <span>Faça Login</span>
-                <div id="iconeFacaLogin" onclick="voltarParaLogin()"><i class="fa-solid fa-arrow-left"></i></div>
+
+                <div id="iconeFacaLogin" onclick="voltarParaLogin()"><i class="fa-solid fa-arrow-left"></i><span>Faça
+                        Login</span></div>
             </div>
 
         </div>
@@ -185,6 +187,12 @@
         document.getElementById('divContainerLogin').classList.add('hidden');
         document.getElementById('divContainerCadastreSe').classList.remove('hidden');
         document.getElementById('divContainerCadastreSe').classList.add('visible');
+
+
+        i_nomeCadastro.value = "";
+        i_emailCadastro.value = "";
+        i_senhaCadastro.value = "";
+        i_confimacaoSenha.value = "";
     }
     function voltarParaLogin() {
         console.log('Função voltarParaLogin chamada!');
@@ -192,6 +200,9 @@
         document.getElementById('divContainerCadastreSe').classList.add('hidden');
         document.getElementById('divContainerLogin').classList.remove('hidden');
         document.getElementById('divContainerLogin').classList.add('visible');
+
+        i_emailLogin.value = "";
+        i_senhaLogin.value = "";
     }
 
 
@@ -597,7 +608,7 @@
             });
             return false;
         }
-        
+
     }
 
 </script>
