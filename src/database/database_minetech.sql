@@ -1,6 +1,6 @@
-create database gta;
+create database minetech;
 
-use gta;
+use minetech;
 
 create table usuario(
 id int primary key auto_increment,
