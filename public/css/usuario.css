@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-    font-family: 'Poppins', serif;
+    font-family: 'Poppins', monospace;
     display: flex;
 
     height: 100vh;
@@ -23,6 +23,8 @@ body {
 }
 
 #divContainerLogin {
+    font-family: 'VT323', monospace;
+
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -34,6 +36,8 @@ body {
 }
 
 #divContainerCadastreSe {
+    font-family: 'VT323', monospace;
+
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -61,7 +65,7 @@ body {
 
 /* Banner */
 .divBannerLogin {
-    background-image: url(../assets/BannerMinecraft.jpg);
+    background-image: url(../assets/WallpaperLoginCadastro.jpeg);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -80,13 +84,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
 
 .divBannerCadastro {
-    background-image: url(../assets/BannerMinecraft.jpg);
+    background-image: url(../assets/WallpaperLoginCadastro.jpeg);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -105,7 +109,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
@@ -137,7 +141,11 @@ body {
     z-index: 3;
 }
 
-
+.divBoxLogin h1,
+.divBoxCadastro h1 {
+    font-weight: normal;
+    font-size: 45px;
+}
 
 /* Input */
 input {
@@ -157,21 +165,20 @@ input {
 .divCampo {
     position: relative;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     height: 50px;
     margin-bottom: 50px;
 }
 
-
+/* Textos dos input´s de *Login* */
 .textoInput-senha,
-.textoInput-email,
-.textoInput-confirmacaoSenha {
+.textoInput-email {
     position: absolute;
     width: fit-content;
     right: 60px;
     white-space: nowrap;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 27px;
     color: #888;
     line-height: 80px;
     background-color: #000;
@@ -179,17 +186,39 @@ input {
     transition: 0.2s ease;
 }
 
-.textoInput-email {
-    position: absolute;
-    right: 65px;
-}
-
+/* Textos dos input´s de *Cadastro* */
+.textoInput-nomeCad,
+.textoInput-emailCad,
+.textoInput-senhaCad,
 .textoInput-confirmacaoSenha {
     position: absolute;
-    left: -140px;
+    width: fit-content;
+    white-space: nowrap;
+    font-size: 27px;
+    color: #888;
+    line-height: 80px;
+    background-color: #000;
+    border-radius: 20px;
+    transition: 0.2s ease;
 }
 
-/* Ao clicar, as bordas dos input's ficarão amarelas */
+.textoInput-nomeCad {
+    right: 240px;
+}
+
+.textoInput-emailCad {
+    right: 230px;
+}
+
+.textoInput-senhaCad {
+    right: 230px;
+}
+.textoInput-confirmacaoSenha {
+    right: 80px;
+}
+
+
+/* Ao clicar, as bordas dos input's ficarão verdes */
 input:focus,
 input:valid {
     color: white;
@@ -197,9 +226,18 @@ input:valid {
     border: 2px solid var(--verde);
 }
 
-/* Ao inserir um texto valido, a borda permanece amarela */
+/* Ao inserir um texto valido, a borda permanece verdes */
+input:focus+.textoInput-nomeCad,
+input:focus+.textoInput-emailCad,
+input:focus+.textoInput-senhaCad,
+
+input:valid+.textoInput-nomeCad,
+input:valid+.textoInput-emailCad,
+input:valid+.textoInput-senhaCad,
+
 input:focus+.textoInput-email,
 input:focus+.textoInput-senha,
+
 input:valid+.textoInput-email,
 input:valid+.textoInput-senha {
     color: var(--verde);
@@ -216,10 +254,19 @@ input:valid+.textoInput-confirmacaoSenha {
     height: 30px;
     line-height: 30px;
     padding: 0 12px;
-    transform: translate(-35px, -16px) scale(0.88);
+    transform: translate(-10px, -16px) scale(0.88);
     z-index: 1111;
 }
 
+
+/* Texto de Requisitos de Senha */
+#div_validarSenha {
+    width: 350px;
+    color: #888;
+    font-size: 17px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 /* Espaçamento do icone pro texto da input */
 i {
@@ -240,6 +287,11 @@ i {
     z-index: 2222;
 }
 
+#i_buttonEyeConfirmacaoSenha,
+#i_buttonEyeSenhaCadastro {
+    left: 300px;
+}
+
 #iconeEyes {
     height: 30px;
 }
@@ -247,11 +299,11 @@ i {
 /* Botão de `Entrar` */
 #botaoLogin,
 #botaoCadastrar {
+    font-family: 'VT323', monospace;
     margin-top: 10px;
     width: 200px;
     height: 60px;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 25px;
     border-radius: 50px;
     background-color: var(--verde);
     border: 2px solid #888;
@@ -272,7 +324,9 @@ i {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    padding-top: 30px;
     align-items: center;
+    font-size: 25px;
 }
 
 #iconeFacaLogin i {
@@ -296,17 +350,14 @@ i {
     justify-content: center;
     width: fit-content;
     height: fit-content;
-    margin-top: 10px;
-    padding: 5px;
     border-radius: 20px;
     text-align: center;
     background-color: transparent;
-    border: 2px solid #888;
     transition: 0.5s;
+    text-decoration: underline;
 }
 
 #iconeCadastreSe:hover,
 #iconeFacaLogin:hover {
-    background-color: var(--verde);
-    animation: pulse 2s infinite;
+    color: var(--verde);
 }

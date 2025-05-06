@@ -55,10 +55,9 @@
 
 
             <div class="botaoCadastreSe">
-                <p>Não possui uma conta?</p>
+                <a>Não possui uma conta?</a>
 
-                <div id="iconeCadastreSe" onclick="irParaCadastro()"><span>Cadastre-se</span><i
-                        class="fa-solid fa-arrow-right"></i></div>
+                <div id="iconeCadastreSe" onclick="irParaCadastro()"><span>Cadastre-se</span></div>
             </div>
 
         </div>
@@ -83,7 +82,7 @@
                 <!-- Nome -->
                 <div class="divCampo" id="div_campoNomeCadastro">
                     <input type="text" id="i_nomeCadastro" required autocomplete="off">
-                    <div class="textoInput-email">
+                    <div class="textoInput-nomeCad">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span>Nome</span>
                     </div>
@@ -91,7 +90,7 @@
                 <!-- Email -->
                 <div class="divCampo" id="div_campoEmailCadastro">
                     <input type="text" id="i_emailCadastro" required autocomplete="new-email">
-                    <div class="textoInput-email">
+                    <div class="textoInput-emailCad">
                         <i class="fa-solid fa-at"></i>
                         <span>Email</span>
                     </div>
@@ -104,12 +103,17 @@
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </div>
                     </button>
-                    <input type="password" id="i_senhaCadastro" required autocomplete="off">
-                    <div class="textoInput-senha">
+                    <input type="password" id="i_senhaCadastro" oninput="validarSenha()" required autocomplete="off">
+                    <div class="textoInput-senhaCad">
                         <i class="fas fa-lock"></i>
                         <span>Senha</span>
                     </div>
-
+                </div>
+                
+                <div id="div_validarSenha">
+                    <span class="span_NecSenha">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1
+                        letra
+                        minúscula e 1 caractere especial.</span>
                 </div>
 
                 <!-- Confirmação de Senha -->
@@ -134,10 +138,8 @@
             <button id="botaoCadastrar" onclick="cadastrar()">Cadastrar</button>
 
             <div class="botaoFacaLogin">
-                <p>Já possui uma conta?</p>
-
-                <div id="iconeFacaLogin" onclick="voltarParaLogin()"><i class="fa-solid fa-arrow-left"></i><span>Faça
-                        Login</span></div>
+                <a>Já possui uma conta?</a>
+                <div id="iconeFacaLogin" onclick="voltarParaLogin()"><span>Faça Login</span></div>
             </div>
 
         </div>
@@ -361,12 +363,12 @@
         }
         // Verifica se a senha atende a todos os requisitos listados
         if (tamanhoValido >= 8 && temMaiuscula && temMinuscula && temEspecial) {
-            // div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: green">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
-            //     minúscula e 1 caractere especial.</span>`;
+            div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: green">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
+                minúscula e 1 caractere especial.</span>`;
             return true;
         } else {
-            // div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: red">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
-            //     minúscula e 1 caractere especial.</span>`;
+            div_validarSenha.innerHTML = `<span class="span_NecSenha" style="color: red">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1 letra
+                minúscula e 1 caractere especial.</span>`;
             return false;
         }
     }

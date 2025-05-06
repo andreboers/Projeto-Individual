@@ -216,11 +216,11 @@ nav {
     height: 100vh;
     background-color: var(--darkgray);
     border-top: 4px solid #444;
-    padding-top: 100px;
+    padding-top: 50px;
     text-align: center;
 }
 
-.divBox2 #tituloBox2 {
+.titulos {
     align-self: center;
     font-size: 60px;
     padding: 0;
@@ -236,7 +236,10 @@ nav {
 #divBoxIntroducao1 {
     background-color: #222;
     width: fit-content;
-    height: 550px;
+    border: 7px solid #222;
+    border-top: 12px solid #222;
+
+    height: fit-content;
     text-align: start;
 }
 
@@ -261,6 +264,66 @@ nav {
     margin-top: 0;
 }
 
-#divVideo {
-    border: 10px #222 solid;
+
+
+
+
+
+/* Escopo de Jogos */
+
+#divJogosMinecraft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box {
+    height: 700px;
+    width: fit-content;
+    background-color: #222;
+    border: 7px solid #222;
+    transition: 0.8s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.box:hover {
+    border: 7px solid #444;
+    
+}
+
+#divMinecraftDungeons {
+    background-image: url(../assets/BannerMinecraftDungeons.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 600px;
+    background-color: #222;
+}
+
+#divMinecraftBedrock {
+    background-image: url(../assets/BannerMinecraftBedrock.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 600px;
+    background-color: #222;
+}
+
+#divMinecraftLegends {
+    background-image: url(../assets/BannerMinecraftLegends.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 600px;
+    background-color: #222;
+}
+
+
+.titulosJogos {
+    font-size: 40px;
+    padding-top: 30px;
 }
