@@ -5,6 +5,7 @@
 body {
     font-family: 'VT323', monospace;
     display: flex;
+    flex-direction: column;
 
     height: 100vh;
     margin: 0;
@@ -166,25 +167,23 @@ nav {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
+    z-index: 2;
 }
 
 /* Container que abriga o site */
 .container {
-    position: absolute;
-    top: 65vh;
     width: 100%;
-    height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 .divBox1 {
+    margin-top: 500px;
     margin-right: 800px;
     width: 30%;
     height: fit-content;
@@ -193,8 +192,6 @@ nav {
     text-align: center;
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 100px;
 }
 
 #tituloCard {
@@ -202,7 +199,7 @@ nav {
     font-size: 50px;
 }
 
-.divBox1 a {
+.divBox1 p {
     padding: 20px;
     font-size: 25px;
 }
@@ -213,7 +210,6 @@ nav {
 
 .divBox2 {
     width: 100%;
-    height: 100vh;
     background-color: var(--darkgray);
     border-top: 4px solid #444;
     padding-top: 50px;
@@ -271,13 +267,19 @@ nav {
 
 /* Escopo de Jogos */
 
-#divJogosMinecraft {
+.divBox3 {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--darkgray);
+    text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.box {
+.boxDungeons,
+.boxLegends,
+.boxBedrock {
     height: 700px;
     width: fit-content;
     background-color: #222;
@@ -287,9 +289,13 @@ nav {
     flex-direction: column;
 }
 
-.box:hover {
+
+.boxDungeons:hover,
+.boxLegends:hover,
+.boxBedrock:hover {
     border: 7px solid #444;
-    
+    cursor: pointer;
+
 }
 
 #divMinecraftDungeons {
@@ -326,4 +332,82 @@ nav {
 .titulosJogos {
     font-size: 40px;
     padding-top: 30px;
+}
+
+#boxMinecraftDungeons,
+#boxMinecraftBedrock,
+#boxMinecraftLegends {
+    position: absolute;
+    width: 90.5%;
+    height: 500px;
+    margin-top: 50px;
+    background-color: #222;
+    border-top: #444 4px solid;
+}
+
+#trianguloMinecraftDungeons {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #444;
+    position: relative;
+    z-index: 4442;
+    right: 31.5%;
+}
+
+#trianguloMinecraftLegends {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #444;
+    position: relative;
+    z-index: 4442;
+}
+
+#trianguloMinecraftBedrock {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #444;
+    position: relative;
+    z-index: 2222;
+    left: 31.5%;
+}
+
+#cardJogos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Classes para JavaScript */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
+
+
+
+/* Parte: Sobre o MineTech */
+
+.margin {
+    margin-top: 550px;
+}
+
+/* Footer */
+
+#footer {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 150px;
+    margin-top: 60px;
 }

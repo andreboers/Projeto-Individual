@@ -27,8 +27,8 @@
                 <li><a class="alinks" href="usuario.html" id="div_mensagem">Faça seu Login</a></li>
                 <li><a class="alinks" href="#">Quiz</a></li>
                 <li><a class="alinks" href="#">Dashboard</a></li>
-                <li><a class="alinks" href="#">Jogos</a></li>
-                <li><a class="alinks" href="#">Sobre</a></li>
+                <li><a class="alinks" href="#jogos">Jogos</a></li>
+                <li><a class="alinks" href="#divSobre">Sobre Mim</a></li>
                 <li><a class="alinks" href="#">Comprar o Minecraft</a></li>
             </ul>
         </nav>
@@ -37,24 +37,28 @@
         <script src="js/navbar.js"></script>
     </header>
 
-    <div id="divBanner"></div>
 
     <div class="container">
 
-        <div class="divBox1">
-            <span id="tituloCard">Conheça o MineTech</span>
-            <a>Bem-vindo ao MineTech, um projeto criado por mim, André Boer, para compartilhar o que há de melhor no
-                universo de Minecraft de uma forma interativa e divertida.
-                <br>
+        <!-- Div Box 1 -->
+        <div id="divBanner">
+            <div class="divBox1">
+                <span id="tituloCard">Conheça o MineTech</span>
+                <p>Bem-vindo ao MineTech, um projeto criado por mim, André Boer, para compartilhar o que há de melhor no
+                    universo de Minecraft de uma forma interativa e divertida.
+                    <br>
 
-                O MineTech traz uma série de recursos que vão tornar sua experiência ainda mais imersiva. Aqui, você
-                pode participar de um quiz interativo, testando seus conhecimentos sobre o jogo e se desafiando em
-                diferentes perguntas e respostas.
+                    O MineTech traz uma série de recursos que vão tornar sua experiência ainda mais imersiva. Aqui, você
+                    pode participar de um quiz interativo, testando seus conhecimentos sobre o jogo e se desafiando em
+                    diferentes perguntas e respostas.
 
-                <br>
-                Além disso, o site conta com um dashboard onde você pode acompanhar
-                seu desempenho, ver suas estatísticas e muito mais.</a>
+                    <br>
+                    Além disso, o site conta com um dashboard onde você pode acompanhar
+                    seu desempenho, ver suas estatísticas e muito mais.
+                </p>
+            </div>
         </div>
+        <!-- Div Box 2 -->
         <div class="divBox2">
             <p class="titulos">O que é o Minecraft?</p>
             <div id="containerIntroducao">
@@ -85,94 +89,137 @@
                 </div>
             </div>
 
+            <!-- Jogos -->
+            <div id="jogos"></div>
             <p class="titulos">Jogos</p>
-            <div id="divJogosMinecraft">
-                <div class="box">
+
+            <div class="divBox3">
+                <div class="boxDungeons" onclick="verDungeons()">
                     <div id="divMinecraftDungeons">
                     </div>
                     <span class="titulosJogos">Minecraft Dungeons</span>
                 </div>
 
-                <div class="box">
+                <div class="boxLegends" onclick="verLegends()">
                     <div id="divMinecraftLegends">
                     </div>
                     <span class="titulosJogos">Minecraft Legends</span>
                 </div>
 
 
-                <div class="box">
+                <div class="boxBedrock" onclick="verBedrock()">
                     <div id="divMinecraftBedrock">
                     </div>
                     <span class="titulosJogos">Minecraft Bedrock</span>
                 </div>
 
             </div>
+            <div id="cardJogos">
 
+                <!-- Card Minecraft Dungeons -->
+                <div id="trianguloMinecraftDungeons" class="hidden"></div>
+                <div id="boxMinecraftDungeons" class="hidden">
+                    <p class="titulos">Minecraft Dungeons</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
+                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
+                        maiores. Consequatur omnis distinctio atque.</p>
+                </div>
+    
+                <!-- Card Minecraft Legends -->
+                <div id="trianguloMinecraftLegends" class="hidden"></div>
+                <div id="boxMinecraftLegends" class="hidden">
+                    <p class="titulos">Minecraft Legends</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
+                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
+                        maiores. Consequatur omnis distinctio atque.</p>
+                </div>
+    
+                <!-- Card Minecraft Bedrock -->
+                <div id="trianguloMinecraftBedrock" class="hidden"></div>
+                <div id="boxMinecraftBedrock" class="hidden">
+                    <p class="titulos">Minecraft Bedrock</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
+                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
+                        maiores. Consequatur omnis distinctio atque.</p>    
+                </div>
+            </div>
 
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
-            <p>teste</p>
+            <!-- Sobre Mim -->
+            <div id="divSobre" class="">
+                <p class="titulos">Sobre Mim</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vero temporibus nulla, ullam
+                    perferendis eligendi dolor expedita, amet tempore repudiandae nobis accusamus porro hic ipsam iure
+                    alias obcaecati reiciendis? Maiores! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
+                    voluptatum voluptatem, ex doloremque libero iure ut impedit, enim, non adipisci aspernatur! Error ea
+                    aliquam tempora fuga magnam quas dicta sunt? Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Excepturi quam autem consectetur, id, ipsa praesentium ab totam quod optio dolore architecto,
+                    nulla doloribus natus mollitia dolor et obcaecati. Laborum, consequatur!</p>
+            </div>
+        </div>
+        <div id="footer">
+            <p>&copy; 2025 MineTech. Criado por André Boer.</p>
         </div>
     </div>
-
 </body>
 
 </html>
+
+<script>
+    function verDungeons() {
+        document.getElementById('trianguloMinecraftDungeons').classList.add('visible');
+        document.getElementById('boxMinecraftDungeons').classList.add('visible');
+        document.getElementById('trianguloMinecraftDungeons').classList.remove('hidden');
+        document.getElementById('boxMinecraftDungeons').classList.remove('hidden');
+
+        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
+        document.getElementById('boxMinecraftLegends').classList.add('hidden');
+        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
+        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
+        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
+        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
+        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
+
+        document.getElementById('divSobre').classList.add('margin');
+        console.log("Chamando a função Minecraft Dungeons")
+    }
+    function verLegends() {
+        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
+        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
+        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
+        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftLegends').classList.add('visible');
+        document.getElementById('boxMinecraftLegends').classList.add('visible');
+        document.getElementById('trianguloMinecraftLegends').classList.remove('hidden');
+        document.getElementById('boxMinecraftLegends').classList.remove('hidden');
+
+        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
+        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
+        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
+        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
+
+        document.getElementById('divSobre').classList.add('margin');
+        console.log("Chamando a função Minecraft Legends")
+    }
+    function verBedrock() {
+        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
+        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
+        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
+        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
+        document.getElementById('boxMinecraftLegends').classList.add('hidden');
+        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
+        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftBedrock').classList.add('visible');
+        document.getElementById('boxMinecraftBedrock').classList.add('visible');
+        document.getElementById('trianguloMinecraftBedrock').classList.remove('hidden');
+        document.getElementById('boxMinecraftBedrock').classList.remove('hidden');
+
+        document.getElementById('divSobre').classList.add('margin');
+        console.log("Chamando a função Minecraft Bedrock")
+    }
+</script>
