@@ -25,7 +25,7 @@
             <!-- Lista de Botões Laterais -->
             <ul class="nav-list">
                 <li><a class="alinks" href="usuario.html" id="div_mensagem">Faça seu Login</a></li>
-                <li><a class="alinks" href="#">Quiz</a></li>
+                <li><a class="alinks" href="quiz.html">Quiz</a></li>
                 <li><a class="alinks" href="#">Dashboard</a></li>
                 <li><a class="alinks" href="#jogos">Jogos</a></li>
                 <li><a class="alinks" href="#divSobre">Sobre Mim</a></li>
@@ -66,7 +66,6 @@
                     <div id="divVideo">
                         <video width="900" height="500" autoplay muted loop playsinline>
                             <source src="assets/TrailerMinecraft.webm" type="video/webm">
-                            Seu navegador não suporta o vídeo.
                         </video>
                     </div>
                     <a href="https://www.youtube.com/embed/Rla3FUlxJdE?autoplay=1&loop=1&playlist=Rla3FUlxJdE&mute=1">Ir
@@ -124,36 +123,48 @@
                         beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
                         maiores. Consequatur omnis distinctio atque.</p>
                 </div>
-    
+
                 <!-- Card Minecraft Legends -->
                 <div id="trianguloMinecraftLegends" class="hidden"></div>
                 <div id="boxMinecraftLegends" class="hidden">
-                    <p class="titulos">Minecraft Legends</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
-                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
-                        maiores. Consequatur omnis distinctio atque.</p>
+                    <div class="galeria" id="galeriaLegends"></div>
+                    <p><span class="titulos">Minecraft Legends</span> <br>Minecraft Legends é um jogo de estratégia e
+                        ação desenvolvido pela Mojang Studios e Blackbird
+                        Interactive e publicado por Xbox Game Studios. Ele foi lançado para Microsoft Windows, Nintendo
+                        Switch, PlayStation 4, PlayStation 5, Xbox One e Xbox Series X/S em 18 de abril de 2023. Ele foi
+                        um jogo derivado do Minecraft. </p>
                 </div>
-    
+
                 <!-- Card Minecraft Bedrock -->
                 <div id="trianguloMinecraftBedrock" class="hidden"></div>
                 <div id="boxMinecraftBedrock" class="hidden">
                     <p class="titulos">Minecraft Bedrock</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
                         beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
-                        maiores. Consequatur omnis distinctio atque.</p>    
+                        maiores. Consequatur omnis distinctio atque.</p>
                 </div>
             </div>
 
             <!-- Sobre Mim -->
-            <div id="divSobre" class="">
-                <p class="titulos">Sobre Mim</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vero temporibus nulla, ullam
-                    perferendis eligendi dolor expedita, amet tempore repudiandae nobis accusamus porro hic ipsam iure
-                    alias obcaecati reiciendis? Maiores! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-                    voluptatum voluptatem, ex doloremque libero iure ut impedit, enim, non adipisci aspernatur! Error ea
-                    aliquam tempora fuga magnam quas dicta sunt? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Excepturi quam autem consectetur, id, ipsa praesentium ab totam quod optio dolore architecto,
-                    nulla doloribus natus mollitia dolor et obcaecati. Laborum, consequatur!</p>
+            <p id="tituloSobre" class="">Sobre Mim</p>
+            <div id="divSobre">
+                <div id="divBoxSobre1">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vero temporibus nulla, ullam
+                        perferendis eligendi dolor expedita, amet tempore repudiandae nobis accusamus porro hic ipsam
+                        iure
+                        alias obcaecati reiciendis? Maiores! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Sequi
+                        voluptatum voluptatem, ex doloremque libero iure ut impedit, enim, non adipisci aspernatur!
+                        Error ea
+                        aliquam tempora fuga magnam quas dicta sunt? Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Excepturi quam autem consectetur, id, ipsa praesentium ab totam quod optio dolore
+                        architecto,
+                        nulla doloribus natus mollitia dolor et obcaecati. Laborum, consequatur!</p>
+                </div>
+
+                <div id="divBoxSobre2">
+                    <div id="fotoPessoal"></div>
+                </div>
             </div>
         </div>
         <div id="footer">
@@ -181,8 +192,7 @@
         document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
         document.getElementById('boxMinecraftBedrock').classList.remove('visible');
 
-        document.getElementById('divSobre').classList.add('margin');
-        console.log("Chamando a função Minecraft Dungeons")
+        document.getElementById('tituloSobre').classList.add('margin');
     }
     function verLegends() {
         document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
@@ -200,8 +210,7 @@
         document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
         document.getElementById('boxMinecraftBedrock').classList.remove('visible');
 
-        document.getElementById('divSobre').classList.add('margin');
-        console.log("Chamando a função Minecraft Legends")
+        document.getElementById('tituloSobre').classList.add('margin');
     }
     function verBedrock() {
         document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
@@ -219,7 +228,6 @@
         document.getElementById('trianguloMinecraftBedrock').classList.remove('hidden');
         document.getElementById('boxMinecraftBedrock').classList.remove('hidden');
 
-        document.getElementById('divSobre').classList.add('margin');
-        console.log("Chamando a função Minecraft Bedrock")
+        document.getElementById('tituloSobre').classList.add('margin');
     }
 </script>

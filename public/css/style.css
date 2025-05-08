@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
     font-family: 'VT323', monospace;
@@ -15,7 +15,7 @@ body {
 }
 
 :root {
-    --verde: #47761E;
+    --verde: #6cc349;
     --offWhite: #FED985;
     --marrom: #F09E71;
     --azul: #61B5CB;
@@ -27,6 +27,11 @@ body {
 }
 
 
+.titulos, #tituloSobre {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 30px;
+    padding: 50px;
+}
 
 /* Navbar interativa */
 .alinks {
@@ -199,7 +204,7 @@ nav {
     font-size: 50px;
 }
 
-.divBox1 p {
+ p {
     padding: 20px;
     font-size: 25px;
 }
@@ -214,12 +219,6 @@ nav {
     border-top: 4px solid #444;
     padding-top: 50px;
     text-align: center;
-}
-
-.titulos {
-    align-self: center;
-    font-size: 60px;
-    padding: 0;
 }
 
 #containerIntroducao {
@@ -253,8 +252,7 @@ nav {
 }
 
 #divBoxIntroducao2 p {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding: 0px 150px 0 150px;
     font-size: 30px;
     padding-top: 0;
     margin-top: 0;
@@ -266,7 +264,6 @@ nav {
 
 
 /* Escopo de Jogos */
-
 .divBox3 {
     width: 100%;
     height: fit-content;
@@ -345,6 +342,16 @@ nav {
     border-top: #444 4px solid;
 }
 
+#boxMinecraftLegends {
+
+}
+
+.galeria {
+    width: 30%;
+    height: 700px;
+    background-color: #fff;
+}
+
 #trianguloMinecraftDungeons {
     width: 0;
     height: 0;
@@ -383,11 +390,10 @@ nav {
     justify-content: center;
 }
 
-/* Classes para JavaScript */
+/* Classes para exibição dos cards com JavaScript */
 .hidden {
     display: none;
 }
-
 .visible {
     display: flex;
 }
@@ -396,13 +402,53 @@ nav {
 
 
 /* Parte: Sobre o MineTech */
+#divSobre {
+    width: 80%;
+    margin-left: 10%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .margin {
     margin-top: 550px;
 }
 
-/* Footer */
+#divBoxSobre1,
+#divBoxSobre2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: fit-content;
+}
 
+
+#divBoxSobre1 p {
+    padding: 0px 150px 0 150px;
+    font-size: 30px;
+    margin: 0;
+}
+
+#divBoxSobre2{
+    height: 530px;
+    width: 530px;
+    background-color: #222;
+    margin-right: 100px;
+}
+
+#fotoPessoal {
+    background-image: url(../assets/FotoMinha.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 500px;
+}
+
+/* Footer */
 #footer {
     background: #1a1a1a;
     color: #fff;
