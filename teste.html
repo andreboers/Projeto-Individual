@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+.droptarget {
+  width: 100px; 
+  height: 35px;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The ondragstart, ondragover, and ondrop Events</h2>
+
+<p>Drag the text up and down between the two rectangles:</p>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <p ondragstart="dragStart(event)" draggable="true" id="dragtarget">Drag me!</p>
+</div>
+<br>
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<p id="demo"></p>
+
+<script>
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+  document.getElementById("demo").innerHTML = "Started to drag the text";
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+  document.getElementById("demo").innerHTML = "The text was dropped";
+}
+</script>
+
+</body>
+</html>

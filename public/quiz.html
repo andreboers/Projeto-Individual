@@ -4,11 +4,131 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/quiz.css">
         <title>MineTech | Quiz</title>
 </head>
 
 <body>
+        <div id="imagemCraftingTable">
+                <div id="line1">
+                        <div class="droptarget" id="i_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+                <div id="line2">
+                        <div class="droptarget" id="i_4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+                <div id="line3">
+                        <div class="droptarget" id="i_7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="droptarget" id="i_9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+        </div>
 
+
+
+                <div id="line1">
+                        <div class="droptarget" id="i_1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Graveto 1 -->
+                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true" id="graveto1">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Graveto 1 -->
+                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true" id="graveto2">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Diamante 1 -->
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true" id="diamante1">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Diamante 2 -->
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true" id="diamante2">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Diamante 3 -->
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true" id="diamante3">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <!-- Graveto 1 -->
+                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true" id="graveto3">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_7" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <div class="droptarget item" ondragstart="dragStart(event)" draggable="true" id="graveto7">
+                                </div>
+                        </div>
+                        <div class="droptarget" id="i_8" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                        </div>
+                        <div class="droptarget" id="i_9" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                        </div>
+                </div>
+
+
+                <div id="items" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+
+
+
+
+
+
+                </div>
+        </div>
 </body>
 
 </html>
+
+<script>
+
+        function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+                // document.getElementById("demo").innerHTML = "Started to drag the text";
+        }
+
+        function allowDrop(event) {
+                event.preventDefault();
+        }
+
+        function drop(event) {
+                event.preventDefault();
+                const data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+                // document.getElementById("demo").innerHTML = "The text was dropped";
+        }
+
+        // var crafting_table = [['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'], [i_7.value, i_8.value, i_9.value]];
+
+        // Example:
+        // Verificar se está correto:
+        // if  (crafting_table[0][0] == diamante &&
+        //      crafting_table[0][1] == diamante &&
+        //      crafting_table[0][2] == diamante &&
+        //      crafting_table[1][1] == graveto &&
+        //      crafting_table[2][1] == graveto
+        //      ){
+        //  } else {
+        //      alert('Verifique se está correto')
+        //  }
+
+        // function verificar() {
+        //         var a1 = i_1.value;
+        //         var a2 = i_2.value;
+        //         var a3 = i_3.value;
+        //         var a4 = i_4.value;
+        //         var a5 = i_5.value;
+        //         var a6 = i_6.value;
+        //         var a7 = i_7.value;
+        //         var a8 = i_8.value;
+        //         var a9 = i_9.value;
+        // }
+</script>

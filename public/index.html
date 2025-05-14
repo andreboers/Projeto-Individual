@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>MineTech | Início</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
     <!-- Cabeçalho da Página -->
     <header class="cabecalho">
         <nav clas="nav">
@@ -24,16 +27,21 @@
             </div>
             <!-- Lista de Botões Laterais -->
             <ul class="nav-list">
-                <li><a class="alinks" href="usuario.html" id="div_mensagem">Faça seu Login</a></li>
-                <li><a class="alinks" href="quiz.html">Quiz</a></li>
-                <li><a class="alinks" href="#">Dashboard</a></li>
+                <!-- Login -->
+                <li><a class="alinks" href="../usuario.html" id="b_usuario">Faça seu Login</a></li>
+                <!-- Jogos -->
                 <li><a class="alinks" href="#jogos">Jogos</a></li>
+                <!-- Sobre Mim -->
                 <li><a class="alinks" href="#divSobre">Sobre Mim</a></li>
-                <li><a class="alinks" href="#">Comprar o Minecraft</a></li>
+                <!-- Quiz -->
+                <li><a class="alinks hiddenHeader" href="./quiz.html" id="navQuiz">Quiz</a></li>
+                <!-- Dashboard -->
+                <li><a class="alinks hiddenHeader" href="#" id="navDashboard">Dashboard</a></li>
             </ul>
         </nav>
 
         <!-- Link do JavaScript -->
+        <script src="../js/sessao.js"></script>
         <script src="js/navbar.js"></script>
     </header>
 
@@ -109,7 +117,7 @@
                 <div class="boxBedrock" onclick="verBedrock()">
                     <div id="divMinecraftBedrock">
                     </div>
-                    <span class="titulosJogos">Minecraft Bedrock</span>
+                    <span class="titulosJogos">Minecraft Java e Bedrock</span>
                 </div>
 
             </div>
@@ -118,30 +126,109 @@
                 <!-- Card Minecraft Dungeons -->
                 <div id="trianguloMinecraftDungeons" class="hidden"></div>
                 <div id="boxMinecraftDungeons" class="hidden">
-                    <p class="titulos">Minecraft Dungeons</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
-                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
-                        maiores. Consequatur omnis distinctio atque.</p>
+                    <div class="galeria" id="galeriaDungeons"></div>
+                    <div class="containerCards">
+                        <div class="divTextos">
+                            <p class="pCards">
+                                <span class="titulos">Minecraft Dungeons</span>
+                                <br>
+                                Uma nova forma de viver o universo
+                                Minecraft! Enfrente hordas de inimigos em masmorras cheias de ação e tesouros. Sem
+                                construção — só combate, estratégia e cooperação para derrotar o mal que ameaça o seu mundo.
+                            </p>
+                        </div>
+                        <div class="plataformas">
+                            <span class="subTitulos">Disponível nas plataformas</span>
+                            <p>
+                                <!-- Windows -->
+                                <a href="https://www.minecraft.net/en-us/store/legends-standard-edition"
+                                    class="linksCards"><i class="fa-brands fa-windows"></i></a>
+                                <!-- Steam -->
+                                <a href="https://store.steampowered.com/app/1928870/Minecraft_Legends/"
+                                    class="linksCards"><i class="fa-brands fa-steam"></i></a>
+                                <!-- Playstation -->
+                                <a href="https://store.playstation.com/pt-br/concept/10000771/?utm_source=mcnet_playstation_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-playstation"></i></a>
+                                <!-- Xbox -->
+                                <a href="https://www.xbox.com/pt-BR/games/store/minecraft-legends/9nf0d13rpx5l?cid=mcnet_xbox_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-xbox"></i></a>
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Card Minecraft Legends -->
                 <div id="trianguloMinecraftLegends" class="hidden"></div>
                 <div id="boxMinecraftLegends" class="hidden">
                     <div class="galeria" id="galeriaLegends"></div>
-                    <p><span class="titulos">Minecraft Legends</span> <br>Minecraft Legends é um jogo de estratégia e
-                        ação desenvolvido pela Mojang Studios e Blackbird
-                        Interactive e publicado por Xbox Game Studios. Ele foi lançado para Microsoft Windows, Nintendo
-                        Switch, PlayStation 4, PlayStation 5, Xbox One e Xbox Series X/S em 18 de abril de 2023. Ele foi
-                        um jogo derivado do Minecraft. </p>
+                    <div class="containerCards">
+                        <div class="divTextos">
+                            <p class="pCards">
+                                <span class="titulos">Minecraft Legends</span>
+                                <br>
+                                Descubra a lenda por trás do mundo de blocos. Embarque em uma aventura estratégica de
+                                ação, lidere exércitos e defenda a terra contra os piglins invasores. Um jogo onde
+                                tática, coragem e união moldam a vitória.
+                            </p>
+                        </div>
+                        <div class="plataformas">
+                            <span class="subTitulos">Disponível nas plataformas</span>
+                            <p>
+                                <!-- Windows -->
+                                <a href="https://www.minecraft.net/en-us/store/legends-standard-edition"
+                                    class="linksCards"><i class="fa-brands fa-windows"></i></a>
+                                <!-- Steam -->
+                                <a href="https://store.steampowered.com/app/1928870/Minecraft_Legends/"
+                                    class="linksCards"><i class="fa-brands fa-steam"></i></a>
+                                <!-- Playstation -->
+                                <a href="https://store.playstation.com/pt-br/concept/10000771/?utm_source=mcnet_playstation_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-playstation"></i></a>
+                                <!-- Xbox -->
+                                <a href="https://www.xbox.com/pt-BR/games/store/minecraft-legends/9nf0d13rpx5l?cid=mcnet_xbox_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-xbox"></i></a>
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- Card Minecraft Bedrock -->
                 <div id="trianguloMinecraftBedrock" class="hidden"></div>
                 <div id="boxMinecraftBedrock" class="hidden">
-                    <p class="titulos">Minecraft Bedrock</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quibusdam minima rerum
-                        beatae neque ut dolorum quod non odio amet veritatis consequuntur, sapiente cumque aspernatur
-                        maiores. Consequatur omnis distinctio atque.</p>
+                    <div class="galeria" id="galeriaBedrock"></div>
+                    <div class="containerCards">
+                        <div class="divTextos">
+                            <p class="pCards">
+                                <span class="titulos">Minecraft Bedrock e Java</span>
+                                <br>
+                                consectetur
+                                Explore, construa e sobreviva em um mundo infinito de blocos. Sozinho ou com amigos,
+                                liberte
+                                sua criatividade para criar tudo — de simples casas a cidades inteiras. Em Minecraft, a
+                                aventura é do seu jeito.
+                            </p>
+                        </div>
+
+                        <div class="plataformas">
+                            <span class="subTitulos">Disponível nas plataformas</span>
+                            <p>
+                                <!-- Windows -->
+                                <a href="https://www.minecraft.net/en-us/store/legends-standard-edition"
+                                    class="linksCards"><i class="fa-brands fa-windows"></i></a>
+                                <!-- Steam -->
+                                <a href="https://store.steampowered.com/app/1928870/Minecraft_Legends/"
+                                    class="linksCards"><i class="fa-brands fa-steam"></i></a>
+                                <!-- Playstation -->
+                                <a href="https://store.playstation.com/pt-br/concept/10000771/?utm_source=mcnet_playstation_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-playstation"></i></a>
+                                <!-- Xbox -->
+                                <a href="https://www.xbox.com/pt-BR/games/store/minecraft-legends/9nf0d13rpx5l?cid=mcnet_xbox_pmp_mcl"
+                                    class="linksCards"><i class="fa-brands fa-xbox"></i></a>
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -230,4 +317,7 @@
 
         document.getElementById('tituloSobre').classList.add('margin');
     }
+
+
+
 </script>

@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'VT323', monospace;
     display: flex;
@@ -13,6 +17,7 @@ body {
     color: #fff;
     background-color: var(--darkgray);
 }
+
 
 :root {
     --verde: #6cc349;
@@ -32,6 +37,13 @@ body {
     font-size: 30px;
     padding: 50px;
 }
+
+.subTitulos {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 20px;
+    padding-top: 100px;
+}
+
 
 /* Navbar interativa */
 .alinks {
@@ -158,6 +170,13 @@ nav {
 }
 
 
+.visibleHeader {
+    display: flex;
+}
+
+.hiddenHeader {
+    display: none;
+}
 
 
 
@@ -204,7 +223,7 @@ nav {
     font-size: 50px;
 }
 
- p {
+p {
     padding: 20px;
     font-size: 25px;
 }
@@ -342,16 +361,6 @@ nav {
     border-top: #444 4px solid;
 }
 
-#boxMinecraftLegends {
-
-}
-
-.galeria {
-    width: 30%;
-    height: 700px;
-    background-color: #fff;
-}
-
 #trianguloMinecraftDungeons {
     width: 0;
     height: 0;
@@ -397,6 +406,50 @@ nav {
 .visible {
     display: flex;
 }
+
+
+/* Dentro dos Card´s */
+.galeria {
+    width: 30%;
+    height: 700px;
+    background-color: #000;
+    margin-left: 50px;
+}
+
+.containerCards {
+    width: 70%;
+}
+
+.pCards{
+    font-size: 30px;
+    padding: 0 150px 0 150px;
+}
+
+i {
+    font-size: 40px;
+    padding: 0 20px 0 20px;
+}
+
+.linksCards {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3;
+}
+
+.linksCards:hover {
+    color: #999;
+}
+
+.plataformas {
+    margin-top: 100px;
+}
+
+.divTextos {
+    width: 700px;
+    width: 100%;
+}
+
+
 
 
 
