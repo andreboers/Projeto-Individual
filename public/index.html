@@ -37,6 +37,8 @@
                 <li><a class="alinks hiddenHeader" href="./quiz.html" id="navQuiz">Quiz</a></li>
                 <!-- Dashboard -->
                 <li><a class="alinks hiddenHeader" href="#" id="navDashboard">Dashboard</a></li>
+                <!-- Botão Sair -->
+                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair</a></li>
             </ul>
         </nav>
 
@@ -126,42 +128,102 @@
                 <!-- Card Minecraft Dungeons -->
                 <div id="trianguloMinecraftDungeons" class="hidden"></div>
                 <div id="boxMinecraftDungeons" class="hidden">
-                    <div class="galeria" id="galeriaDungeons"></div>
-                    <div class="containerCards">
+                    <div class="containerCards1">
+                        <span class="titulos">Galeria</span>
+                        <div class="galeria" id="galeriaDungeons1">
+                        </div>
+                        <div class="galeria" id="galeriaDungeons2">
+                        </div>
+                        <div class="galeria" id="galeriaDungeons3">
+                        </div>
+                    </div>
+                    <div class="containerCards2">
                         <div class="divTextos">
                             <p class="pCards">
                                 <span class="titulos">Minecraft Dungeons</span>
                                 <br>
                                 Uma nova forma de viver o universo
                                 Minecraft! Enfrente hordas de inimigos em masmorras cheias de ação e tesouros. Sem
-                                construção — só combate, estratégia e cooperação para derrotar o mal que ameaça o seu mundo.
+                                construção — só combate, estratégia e cooperação para derrotar o mal que ameaça o seu
+                                mundo.
                             </p>
                         </div>
                         <div class="plataformas">
                             <span class="subTitulos">Disponível nas plataformas</span>
                             <p>
                                 <!-- Windows -->
-                                <a href="https://www.minecraft.net/en-us/store/legends-standard-edition"
+                                <a href="https://www.minecraft.net/en-us/store/minecraft-dungeons-ultimate-edition"
                                     class="linksCards"><i class="fa-brands fa-windows"></i></a>
                                 <!-- Steam -->
-                                <a href="https://store.steampowered.com/app/1928870/Minecraft_Legends/"
+                                <a href="https://store.steampowered.com/app/1672970/Minecraft_Dungeons/"
                                     class="linksCards"><i class="fa-brands fa-steam"></i></a>
                                 <!-- Playstation -->
-                                <a href="https://store.playstation.com/pt-br/concept/10000771/?utm_source=mcnet_playstation_pmp_mcl"
+                                <a href="https://store.playstation.com/en-us/product/UP4433-CUSA18779_00-DUNGEONSPS400000?utm_source=mcnet_playstation_pmp_mcd"
                                     class="linksCards"><i class="fa-brands fa-playstation"></i></a>
                                 <!-- Xbox -->
-                                <a href="https://www.xbox.com/pt-BR/games/store/minecraft-legends/9nf0d13rpx5l?cid=mcnet_xbox_pmp_mcl"
+                                <a href="https://www.microsoft.com/pt-br/p/minecraft-dungeons/9N8NJ74FZTG9?cid=mcnet_xbox_pmp_mcd"
                                     class="linksCards"><i class="fa-brands fa-xbox"></i></a>
 
                             </p>
                         </div>
+                        <span id="tituloRequisitos">Requisitos do Sistema para PC</span>
+                        <div class="requisitos">
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Mínimo:
+                                    <br>
+                                    SO: Windows 10 (atualização de maio de 2020 ou superior) ou Windows 11
+                                    <br>
+                                    Processador: Core i5 2,8 GHz ou equivalente
+                                    <br>
+                                    Memória: 8 GB de RAM
+                                    <br>
+                                    Gráficos: NVIDIA GeForce GTX 660 ou AMD Radeon HD 7870 ou GPU DX11 equivalente
+                                    <br>
+                                    DirectX: Versão 11
+                                    <br>
+                                    Armazenar: 6 GB de espaço disponível
+                                </p>
+                            </div>
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Recomendado:
+                                    <br>
+                                    SO: Windows 10 (atualização de maio de 2020 ou superior) ou Windows 11
+                                    <br>
+                                    Processador: Core i5 2,8 GHz ou equivalente
+                                    <br>
+                                    Memória: 8 GB de RAM
+                                    <br>
+                                    Gráficos: NVIDIA GeForce GTX 660 ou AMD Radeon HD 7870 ou GPU DX11 equivalente
+                                    <br>
+                                    DirectX: Versão 11
+                                    <br>
+                                    Armazenar: 6 GB de espaço disponível
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button onclick="fecharAbas()" class="botaoFechar">x</button>
                     </div>
                 </div>
+
+
 
                 <!-- Card Minecraft Legends -->
                 <div id="trianguloMinecraftLegends" class="hidden"></div>
                 <div id="boxMinecraftLegends" class="hidden">
-                    <div class="galeria" id="galeriaLegends"></div>
+                    <div class="containerCards1">
+                        <span class="titulos">Galeria</span>
+                        <div class="galeria" id="galeriaLegends1">
+                        </div>
+                        <div class="galeria" id="galeriaLegends2">
+                        </div>
+                        <div class="galeria" id="galeriaLegends3">
+                        </div>
+                    </div>
                     <div class="containerCards">
                         <div class="divTextos">
                             <p class="pCards">
@@ -189,14 +251,69 @@
                                     class="linksCards"><i class="fa-brands fa-xbox"></i></a>
                             </p>
                         </div>
+                        <span id="tituloRequisitos">Requisitos do Sistema para PC</span>
+                        <div class="requisitos">
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Mínimo:
+                                    <br>
+                                    SO: Windows 10 (atualização de maio de 2020 ou superior) ou Windows 11
+                                    <br>
+                                    Processador: Core i5 2,8 GHz ou equivalente
+                                    <br>
+                                    Memória: 8 GB de RAM
+                                    <br>
+                                    Gráficos: NVIDIA GeForce GTX 780 ou AMD Radeon 285 ou Intel HD 520 ou GPU DX12
+                                    equivalente
+                                    <br>
+                                    DirectX: Versão 12
+                                    <br>
+                                    Armazenar: 24 GB de espaço disponível
+                                </p>
+                            </div>
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Recomendado:
+                                    <br>
+                                    SO: Windows 10 (atualização de maio de 2020 ou superior) ou Windows 11
+                                    <br>
+                                    Processador: Core i5 3,4 GHz ou equivalente
+                                    <br>
+                                    Memória: 8 GB de RAM
+                                    <br>
+                                    Gráficos:NVIDIA GTX 1060 ou AMD Radeon 580
+                                    <br>
+                                    DirectX: Versão 12
+                                    <br>
+                                    Rede:Conexão de internet banda larga
+                                    <br>
+                                    Armazenar: 24 GB de espaço disponível
+                                </p>
+                            </div>
+                        </div>
+
+
 
                     </div>
+                    <div>
+                        <button onclick="fecharAbas()" class="botaoFechar">x</button>
+                    </div>
                 </div>
+
+
 
                 <!-- Card Minecraft Bedrock -->
                 <div id="trianguloMinecraftBedrock" class="hidden"></div>
                 <div id="boxMinecraftBedrock" class="hidden">
-                    <div class="galeria" id="galeriaBedrock"></div>
+                    <div class="containerCards1">
+                        <span class="titulos">Galeria</span>
+                        <div class="galeria" id="galeriaBedrock1">
+                        </div>
+                        <div class="galeria" id="galeriaBedrock2">
+                        </div>
+                        <div class="galeria" id="galeriaBedrock3">
+                        </div>
+                    </div>
                     <div class="containerCards">
                         <div class="divTextos">
                             <p class="pCards">
@@ -213,24 +330,63 @@
                         <div class="plataformas">
                             <span class="subTitulos">Disponível nas plataformas</span>
                             <p>
-                                <!-- Windows -->
-                                <a href="https://www.minecraft.net/en-us/store/legends-standard-edition"
-                                    class="linksCards"><i class="fa-brands fa-windows"></i></a>
-                                <!-- Steam -->
-                                <a href="https://store.steampowered.com/app/1928870/Minecraft_Legends/"
-                                    class="linksCards"><i class="fa-brands fa-steam"></i></a>
+                                <!-- Desktop -->
+                                <a href="https://www.minecraft.net/en-us/store/minecraft-deluxe-collection-pc?tabs=%7B%22details%22%3A0%7D"
+                                    class="linksCards"><i class="fa-solid fa-display"></i></a>
                                 <!-- Playstation -->
-                                <a href="https://store.playstation.com/pt-br/concept/10000771/?utm_source=mcnet_playstation_pmp_mcl"
-                                    class="linksCards"><i class="fa-brands fa-playstation"></i></a>
+                                <a href="" class="linksCards"><i class="fa-brands fa-playstation"></i></a>
                                 <!-- Xbox -->
-                                <a href="https://www.xbox.com/pt-BR/games/store/minecraft-legends/9nf0d13rpx5l?cid=mcnet_xbox_pmp_mcl"
-                                    class="linksCards"><i class="fa-brands fa-xbox"></i></a>
+                                <a href="" class="linksCards"><i class="fa-brands fa-xbox"></i></a>
+                                <!-- Android -->
+                                <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&utm_source=mcnet_android_pmp_mcov"
+                                    class="linksCards"><i class="fa-brands fa-android"></i></a>
+                                <!-- Iphone -->
+                                <a href="https://apps.apple.com/us/app/minecraft-dream-it-build-it/id479516143"
+                                    class="linksCards"><i class="fa-brands fa-apple"></i></a>
 
                             </p>
                         </div>
+                        <span id="tituloRequisitos">Requisitos do Sistema para PC</span>
+                        <div class="requisitos">
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Mínimo:
+                                    <br>
+                                    SO: Windows 10 versão 14393.0
+                                    <br>
+                                    Processador: Intel Celeron J4105 de 1,5 GHz, AMD FX-4100 de 3,6 GHz ou equivalente
+                                    <br>
+                                    Memória: 4 GB de RAM
+                                    <br>
+                                    Gráficos: Intel HD Graphics 4000 ou AMD Radeon R5
+                                    <br>
+                                    Armazenar: 1 GB de espaço disponível
+                                </p>
+                            </div>
+                            <div class="textoRequisitos">
+                                <p class="pCards">
+                                    Recomendado:
+                                    <br>
+                                    SO: Windows 10 versão 14393.0 ou posterior
+                                    <br>
+                                    Processador: Intel Core i7-6500U de 2,5 GHz, AMD A8-6600K de 3,9 GHz ou superior
+                                    <br>
+                                    Memória:8 GB de RAM
+                                    <br>
+                                    Gráficos: NVIDIA GeForce 940M ou AMD Radeon HD 8570D
+                                    <br>
+                                    Armazenar: 4 GB de espaço disponível
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="fecharAbas()" class="botaoFechar">x</button>
                     </div>
                 </div>
             </div>
+
+
 
             <!-- Sobre Mim -->
             <p id="tituloSobre" class="">Sobre Mim</p>
@@ -317,6 +473,26 @@
 
         document.getElementById('tituloSobre').classList.add('margin');
     }
+
+    function fecharAbas() {
+        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
+        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
+        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
+        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
+        document.getElementById('boxMinecraftLegends').classList.add('hidden');
+        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
+        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+
+        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
+        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
+        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
+        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
+
+        document.getElementById('tituloSobre').classList.remove('margin');
+    }
+
 
 
 

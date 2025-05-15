@@ -32,7 +32,8 @@ body {
 }
 
 
-.titulos, #tituloSobre {
+.titulos,
+#tituloSobre {
     font-family: "Press Start 2P", system-ui;
     font-size: 30px;
     padding: 50px;
@@ -53,7 +54,7 @@ body {
 }
 
 .alinks:hover {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .imgLogo {
@@ -355,7 +356,7 @@ p {
 #boxMinecraftLegends {
     position: absolute;
     width: 90.5%;
-    height: 500px;
+    height: 850px;
     margin-top: 50px;
     background-color: #222;
     border-top: #444 4px solid;
@@ -403,6 +404,7 @@ p {
 .hidden {
     display: none;
 }
+
 .visible {
     display: flex;
 }
@@ -410,17 +412,78 @@ p {
 
 /* Dentro dos Card´s */
 .galeria {
-    width: 30%;
-    height: 700px;
+    width: 400px;
+    height: 200px;
     background-color: #000;
-    margin-left: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 7px #333 solid
 }
 
-.containerCards {
+.galeria:hover {
+    border: 7px #444 solid
+}
+
+.containerCards1 .titulos {
+    padding: 10px;
+}
+
+/* Galeria Dungeons */
+#galeriaDungeons1 {
+    background-image: url(../assets/galeriaDungeons1.webp);
+}
+
+#galeriaDungeons2 {
+    background-image: url(../assets/galeriaDungeons2.jpg);
+}
+
+#galeriaDungeons3 {
+    background-image: url(../assets/galeriaDungeons3.jpg);
+}
+
+/* Galeria Legends */
+#galeriaLegends1 {
+    background-image: url(../assets/GaleriaLegends1.jpg);
+
+}
+
+#galeriaLegends2 {
+    background-image: url(../assets/galeriaLegends2.jpg);
+}
+
+#galeriaLegends3 {
+    background-image: url(../assets/GaleriaLegends3.jpg);
+}
+
+/* Galeria Bedrock */
+#galeriaBedrock1 {
+    background-image: url(../assets/galeriaBedrock1.webp);
+}
+
+#galeriaBedrock2 {
+    background-image: url(../assets/galeriaBedrock2.png);
+}
+
+#galeriaBedrock3 {
+    background-image: url(../assets/galeriaBedrock3.png);
+}
+
+
+
+.containerCards1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.containerCards2 {
     width: 70%;
 }
 
-.pCards{
+.pCards {
     font-size: 30px;
     padding: 0 150px 0 150px;
 }
@@ -449,10 +512,44 @@ i {
     width: 100%;
 }
 
+.requisitos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#tituloRequisitos {
+    font-size: 35px;
+    padding: 0;
+}
+
+.requisitos .pCards {
+    padding: 0;
+    margin: 10px;
+    text-align: start;
+}
+
+.textoRequisitos {
+    width: 45%;
+    background-color: #333;
+    padding: 0 10px 0 10px;
+}
 
 
+/* Botão de fechar card */
+.botaoFechar {
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 70px;
+    font-family: 'VT323', monospace;
+    position: absolute;
+    right: 30px;
+}
 
-
+.botaoFechar:hover {
+    color: #444;
+}
 
 /* Parte: Sobre o MineTech */
 #divSobre {
@@ -465,7 +562,7 @@ i {
 }
 
 .margin {
-    margin-top: 550px;
+    margin-top: 900px;
 }
 
 #divBoxSobre1,
@@ -485,7 +582,7 @@ i {
     margin: 0;
 }
 
-#divBoxSobre2{
+#divBoxSobre2 {
     height: 530px;
     width: 530px;
     background-color: #222;
@@ -500,6 +597,8 @@ i {
     width: 500px;
     height: 500px;
 }
+
+
 
 /* Footer */
 #footer {

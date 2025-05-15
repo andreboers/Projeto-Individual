@@ -12,16 +12,20 @@ function validarSessao() {
 
         document.getElementById('navQuiz').classList.remove('hiddenHeader');
         document.getElementById('navQuiz').classList.add('visibleHeader');
-        
+
         document.getElementById('navDashboard').classList.remove('hiddenHeader');
         document.getElementById('navDashboard').classList.add('visibleHeader');
 
+        document.getElementById('navSair').classList.remove('hiddenHeader');
+        document.getElementById('navSair').classList.add('visibleHeader');
 
     } else {
-        // window.location = "../usuario.html";
     }
 }
 
+function sairSessao() {
+    window.location = "../usuario.html";
+}
 
 function limparSessao() {
     sessionStorage.clear();
