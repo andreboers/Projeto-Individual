@@ -19,7 +19,9 @@ function validarSessao() {
         document.getElementById('navSair').classList.remove('hiddenHeader');
         document.getElementById('navSair').classList.add('visibleHeader');
 
+    
     } else {
+        
     }
 }
 
