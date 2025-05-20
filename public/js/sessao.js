@@ -9,6 +9,7 @@ function validarSessao() {
         b_usuario.innerHTML = `Olá, ${nome}!`;
 
         document.getElementById('b_usuario').removeAttribute('href');
+        document.getElementById('b_usuario').classList.add('nomeDoUsuario');
 
         document.getElementById('navQuiz').classList.remove('hiddenHeader');
         document.getElementById('navQuiz').classList.add('visibleHeader');

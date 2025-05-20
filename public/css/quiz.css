@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -33,16 +32,185 @@ body {
     --darkgray: #171615;
 }
 
-.droptarget {
-    width: 65px;
-    height: 65px;
+
+/* Navbar */
+/* Navbar interativa */
+.alinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3;
+    width: 462px;
+    height: 140px;
+}
+
+.alinks:hover {
+    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.imgLogo {
+    padding-top: 15px;
+    width: 200px;
+}
+
+
+.cabecalho {
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2222;
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(38, 36, 35, 0.97);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.7);
+    color: #fff;
+    height: 9vh;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.nav-list {
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+
+/* Botão interativo */
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+@media (max-width: 3000px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 9vh;
+        right: 0;
+        width: 20%;
+        height: 92vh;
+        background: rgba(38, 36, 35, 0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        z-index: 1;
+    }
+
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+.nav-list.active {
+    width: 20%;
+    margin: 0;
+    transform: translateX(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+
+.nomeDoUsuario {
+    cursor: default;
+}
+
+.visibleHeader {
+    display: flex;
+}
+
+.hiddenHeader {
+    display: none;
+}
+
+
+
+
+
+
+/* Estrutura do quiz */
+.slotCrafting {
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     align-items: center;
-    border: 2px solid black;
 }
 
+.hotbar {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    background-color: #333;
+    border: 3px solid #777;
+    box-shadow:
+        inset 0 0 4px #000,
+        0 0 4px #000;
+}
 
 #line1,
 #line2,
@@ -51,8 +219,28 @@ body {
     flex-direction: row;
     margin-left: 27px;
 }
+
 #line1 {
     margin-top: 27px;
+}
+
+#divHotbar {
+    display: flex;
+    flex-direction: row;
+}
+
+#resultadoCrafting {
+    width: 70px;
+    height: 70px;
+    margin-left: 151px;
+}
+
+#resultadoQuestao {
+    width: 70px;
+    height: 70px;
+    margin-left: 500px;
+
+    position: absolute;
 }
 
 .item {
@@ -71,30 +259,60 @@ body {
 .graveto {
     background-image: url(../assets/Items/280.png);
 }
+
 .diamante {
     background-image: url(../assets/Items/264.png);
     margin-left: -7px;
 }
 
-/* Diamante: 264.png */
-/*  */
+.ferro {
+    background-image: url(../assets/Items/265.png);
+}
+
+.redstone {
+    background-image: url(../assets/Items/331.png);
+}
+
+.esmeralda {
+    background-image: url(../assets/Items/388.png);
+
+}
 
 #imagemCraftingTable {
     width: 500px;
     height: 300px;
     background-image: url(../assets/CraftingTable.webp);
-    background-size:contain;
+    background-size: contain;
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
 }
 
-
-
-
-
-
 /* Aba de Quiz */
 #divCraftingTable {
+    background-color: #444;
 
+    width: 800px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 40px;
+
+}
+
+
+#irParaDashboard {
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color: var(--verde);
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
 }

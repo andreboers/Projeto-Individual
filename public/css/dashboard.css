@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: var(--darkgray);
+}
+
+
+:root {
+    --verde: #6cc349;
+    --offWhite: #FED985;
+    --marrom: #F09E71;
+    --azul: #61B5CB;
+    --verdeOpaco: #93B592;
+    --rosa: #D5A0C4;
+    --cinzaEscuro: #080808;
+
+    --darkgray: #171615;
+}
+
+/* Menu lateral */
+.menuLateral {
+    width: 20%;
+    height: 100%;
+    background-color: #333;
+}
+
+/* Conteudo da Dashboard */
+.conteudoDashboard {
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Indicadores */
+#box1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    margin-top: 20px;
+
+    height: 20%;
+
+}
+
+.indicadores {
+    width: 350px;
+    height: 170px;
+    background-color: #222;
+}
+
+
+/* Gráficos */
+#box2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+#divGraficos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.graficos {
+    background-color: #222;
+    width: 95.5%;
+    height: 310px;
+}
+
+#divRank {
+    width: 30.5%;
+    height: 655px;
+    background-color: #222;
+    margin-right: 26px;
+}
