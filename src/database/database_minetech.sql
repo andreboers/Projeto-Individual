@@ -11,7 +11,11 @@ senha varchar(50) not null
 );
 
 insert into usuario (nome, email, senha) values
-('André','andre@gmail.com','123');
+('André','andre@gmail.com','123'),
+('Daniel','daniel@gmail.com','123'),
+('Kauan','kauan@gmail.com','123'),
+('Nicolly','nicolly@gmail.com','123'),
+('Kauany','kauany@gmail.com','123');
 
 select * from usuario;
 
@@ -28,30 +32,33 @@ insert into quiz (nomeQuiz, qtdPerguntas) values
 select * from quiz;
 
 -- Tabela Associativa entre Usuario e Quiz
-create table pontuacao(
-fkUsuario int,
-constraint CtFkUsuario foreign key (fkUsuario) references usuario(id),
-fkQuiz int,
-constraint CtFkQuiz foreign key (fkQuiz) references quiz(idQuiz),
-constraint PkComposta primary key (fkUsuario, fkQuiz),
-qtdAcertos int,
-dtResposta datetime default current_timestamp
+CREATE TABLE pontuacao (
+    idTentativa int primary key auto_increment,
+    fkUsuario int,
+    fkQuiz int,
+    qtdAcertos int,
+    dtTentativa datetime default current_timestamp,
+    foreign key (fkUsuario) references usuario(id),
+    foreign key (fkQuiz) references quiz(idQuiz)
 );
 
 insert into pontuacao (fkUsuario, fkQuiz, qtdAcertos) values
+(1, 1, 1),
 (1, 1, 3),
+(2, 1, 0),
 (3, 1, 3),
-(9, 1, 1),
-(5, 1, 0),
-(10, 1, 2);
+(3, 1, 2),
+(4, 1, 0),
+(5, 1, 2);
 
 select * from pontuacao;
 
 -- Select relacionando as tabelas usuario e quiz
 select u.nome as 'Nome do Usuário',
+	u.email as 'Email do Usuário',
 	q.nomeQuiz as 'Nome do Quiz',
 	p.qtdAcertos as 'Quantidade de Acertos',
-    p.dtResposta as 'Data'
+    p.dtTentativa as 'Data'
     from pontuacao p
     join usuario u on p.fkUsuario = u.id
     join quiz q on q.idQuiz = p.fkQuiz;
