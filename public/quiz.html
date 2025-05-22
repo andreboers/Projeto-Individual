@@ -31,7 +31,7 @@
                                 <!-- Quiz -->
                                 <li><a class="alinks hiddenHeader" href="./index.html" id="navQuiz">Inicio</a></li>
                                 <!-- Dashboard -->
-                                <li><a class="alinks hiddenHeader" href="#" id="navDashboard">Dashboard</a></li>
+                                <li><a class="alinks hiddenHeader" href="./dashboard.html" id="navDashboard">Dashboard</a></li>
                                 <!-- Botão Sair -->
                                 <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair</a></li>
                         </ul>
@@ -92,58 +92,76 @@
 
                 <div id="divHotbar">
                         <div class="droptarget hotbar" id="hotbar_1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Graveto 1 -->
                                 <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
                                         id="graveto1">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_4" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Diamante 1 -->
                                 <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
                                         id="diamante1">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Graveto 2 -->
                                 <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
                                         id="graveto2">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Diamante 2 -->
                                 <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
                                         id="diamante2">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Diamante 3 -->
                                 <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
                                         id="diamante3">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Graveto 3 -->
                                 <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
                                         id="graveto3">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_7" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Ferro -->
                                 <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
                                         id="ferro1">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_8" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Ferro -->
                                 <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
                                         id="ferro2">
                                 </div>
+
                         </div>
                         <div class="droptarget hotbar" id="hotbar_9" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                                 <!-- Redstone -->
                                 <div class="droptarget item redstone" ondragstart="dragStart(event)" draggable="true"
-                                        id="redstone">
+                                        id="redstone1">
                                 </div>
+
                         </div>
                 </div>
 
@@ -151,8 +169,12 @@
 
                 </div>
 
-                <button onclick="verificar()">Verificar Crafting</button>
-                <button id="botaoProxima" onclick="proximaQuestao()" disabled>Próxima Questão</button>
+
+                <div id="boxBotoes">
+                        <button onclick="verificar()" id="botaoVerificar" class="botao">Verificar Crafting</button>
+                        <button onclick="proximaQuestao()" id="botaoProxima" class="botao" disabled>Próxima
+                                Questão</button>
+                </div>
         </div>
 </body>
 
@@ -216,68 +238,10 @@
                 resultadoQuestao.innerHTML = "";
 
                 document.querySelector("button[onclick='verificar()']").disabled = false;
-                document.getElementById("botaoProxima").disabled = true;
+                botaoProxima.disabled = true;
 
                 if (questaoAtual == 1) {
                         divHotbar.innerHTML = `
-                        <div class="droptarget hotbar" id="hotbar_1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 1 - Espada -->
-                                <div class="droptarget item esmeralda" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto1">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_2" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 2 - Graveto 1 -->
-                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto2">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_4" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 3 - Diamante 1 -->
-                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
-                                        id="diamante1">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_5" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 4 - Diamante 2 -->
-                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
-                                        id="diamante2">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_6" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 5 - Diamante 3 -->
-                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
-                                        id="diamante3">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_3" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 6 - Graveto 2 -->
-                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto3">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_7" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 7 - Vazio -->
-                                <div class="droptarget item redstone" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto7">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_8" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 7 - Vazio -->
-                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto7">
-                                </div>
-                        </div>
-                        <div class="droptarget hotbar" id="hotbar_9" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                <!-- Slot 7 - Vazio -->
-                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
-                                        id="graveto7">
-                                </div>
-                        </div>
-                        `;
-                } else if (questaoAtual == 2) {
-                        divHotbar.innerHTML = `
-                        <div id="divHotbar">
                         <div class="droptarget hotbar" id="hotbar_1" ondrop="drop(event)" ondragover="allowDrop(event)">
                                 <!-- Slot 1 -->
                                 <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
@@ -286,7 +250,7 @@
                         </div>
                         <div class="droptarget hotbar" id="hotbar_4" ondrop="drop(event)" ondragover="allowDrop(event)">
                                 <!-- Slot 2 -->
-                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
                                         id="diamante1">
                                 </div>
                         </div>
@@ -332,10 +296,84 @@
                                         id="redstone">
                                 </div>
                         </div>
+                        `;
+
+                } else if (questaoAtual == 2) {
+                        divHotbar.innerHTML = `
+                        <div class="droptarget hotbar" id="hotbar_1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                
+                                <!-- Slot 1 -->
+                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                        id="ferro1">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                
+                                <!-- Slot 2 -->
+                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                        id="ferro2">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                
+                                <!-- Slot 3 - Ferro -->
+                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                        id="ferro3">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 4 -->
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
+                                        id="diamante1">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 5 -->
+                                <div class="droptarget item diamante" ondragstart="dragStart(event)" draggable="true"
+                                        id="diamante2">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 6 -->
+                                <div class="droptarget item graveto" ondragstart="dragStart(event)" draggable="true"
+                                        id="graveto1">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_7" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 7 -->
+                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                        id="ferro4">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_8" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 8 -->
+                                <div class="droptarget item ferro" ondragstart="dragStart(event)" draggable="true"
+                                        id="ferro5">
+                                </div>
+                        
+                        </div>
+                        <div class="droptarget hotbar" id="hotbar_9" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        
+                                <!-- Slot 9 -->
+                                <div class="droptarget item redstone" ondragstart="dragStart(event)" draggable="true"
+                                        id="redstone1">
+                        </div>
                 </div>
                         `;
 
-                botaoProxima.innerHTML = `Finalizar`;
+                        botaoProxima.innerHTML = `Finalizar`;
                 }
         }
 
@@ -385,7 +423,7 @@
                         mostrarResultadoFinal();
                 }
 
-                console.log(contadorPontos)
+                console.log(`Pontuação atual: ${contadorPontos}`)
         }
 
         function limparGrid() {
@@ -399,8 +437,12 @@
                 divCraftingTable.innerHTML = `
             <p class="titulo">Quiz finalizado!</p>
             <p>Você acertou ${contadorPontos} de ${receitas.length} receitas!</p>
-                <a href="dashboard.html" id="irParaDashboard">Ir para Dashboard</a>
+                <button onclick="irParaDashboard()" class="botao">Ir para Dashboard</a>
             `;
+        }
+
+        function irParaDashboard() {
+                window.location = "./dashboard.html"
         }
 
 </script>

@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="css/dashboard.css">
+
+    <script src="../js/sessao.js"></script>
 
     <title>Dashboard | MineTech</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
     <!-- Menu Lateral da página -->
     <div class="menuLateral">
-
+        <div><span id="b_usuario"></span></div>
+        <hr>
     </div>
 
     <!-- Conteúdo da Dashboard -->

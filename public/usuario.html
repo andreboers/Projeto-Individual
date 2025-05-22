@@ -17,6 +17,13 @@
 
     <div id="divContainerLogin" class="visible">
 
+        <div class="botaoSairLogin">
+            <a href="index.html" class="botaoSair">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span id="textoBotaoSair">Início</span>
+            </a>
+        </div>
+
         <!-- Login de Usuário -->
         <div class="divBoxLogin">
 
@@ -74,6 +81,13 @@
         <div class="divBannerCadastro">
         </div>
 
+        <div class="botaoSairCadastro">
+            <a href="index.html" class="botaoSair">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span id="textoBotaoSair">Inicio</span>
+            </a>
+        </div>
+
         <div class="divBoxCadastro">
 
             <h1>Faça seu Cadastro</h1>
@@ -109,7 +123,7 @@
                         <span>Senha</span>
                     </div>
                 </div>
-                
+
                 <div id="div_validarSenha">
                     <span class="span_NecSenha">A senha deve conter 8 caracteres, incluindo 1 letra maiúscula, 1
                         letra
@@ -296,11 +310,10 @@
                         text: "Bem-vindo! Acesso liberado com sucesso.",
                     });
                     setTimeout(function () {
-
                         window.location = "./index.html";
                     }, 3200);
                 });
-                
+
             } else {
                 // Modal de Erro
                 const Toast = Swal.mixin({

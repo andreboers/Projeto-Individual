@@ -20,20 +20,17 @@ function validarSessao() {
         document.getElementById('navSair').classList.remove('hiddenHeader');
         document.getElementById('navSair').classList.add('visibleHeader');
 
-    
+
     } else {
-        
+
     }
 }
 
 function sairSessao() {
-    window.location = "../usuario.html";
+    window.location.reload()
+    sessionStorage.clear();
 }
 
-function limparSessao() {
-    sessionStorage.clear();
-    window.location = "../login.html";
-}
 
 // carregamento (loading)
 function aguardar() {

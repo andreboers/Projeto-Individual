@@ -62,6 +62,43 @@ body {
 }
 
 
+/* Botões de voltar para home */
+.botaoSairLogin,
+.botaoSairCadastro {
+    width: 100px;
+    height: 100px;
+    z-index: 9999;
+    position: absolute;
+
+    text-align: center;
+}
+
+.botaoSairCadastro {
+    left:1200px;
+    top: 50px;
+}
+
+.botaoSairLogin {
+    left: 50px;
+    top: 50px
+}
+
+#textoBotaoSair {
+    font-size: 25px;
+}
+
+.botaoSair {
+    color: #fff;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+#botaoSairLogin:hover {
+    color: #444;
+}
+
+
+
 
 /* Banner */
 .divBannerLogin {
