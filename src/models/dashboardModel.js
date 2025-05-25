@@ -1,7 +1,7 @@
 var database = require("../database/config")
 
+// KPI's
 function exibirRank() {
-
     var instrucao = `
         select u.nome as ranking,
         sum(p.pontuacao) as pontuacaoTotal
@@ -17,7 +17,6 @@ function exibirRank() {
 }
 
 function exibirPontuacao(nome) {
-
     var instrucao = `
         select sum(p.pontuacao) as pontuacao
         from pontuacao p 
@@ -67,9 +66,30 @@ function exibirQuantidadeDeTentativas(nome) {
 }
 
 
+
+// Gráficos
+// function graficoLinha(nome) {
+//     var instrucao = `
+//         select u.nome as Nome,
+//         date_format(dtTentativa, '%d/%m/%Y %H:%i') AS dataTentativa,
+//         qtdAcertos
+//         from pontuacao p
+//         join usuario u 
+//         on u.id = p.fkUsuario
+//         where u.nome = '${nome}'
+//         order by dtTentativa;
+//     `
+
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+
+//     return database.executar(instrucao);
+// }
+
+
 module.exports = {
     exibirRank,
     exibirPontuacao,
     exibirMediaDeAcertos,
     exibirQuantidadeDeTentativas
+    // graficoLinha
 }

@@ -4,7 +4,11 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="css/quiz.css">
+
+        <script src="js/navbar.js"></script>
+
         <title>MineTech | Quiz</title>
 </head>
 
@@ -34,15 +38,37 @@
                                 <li><a class="alinks hiddenHeader" href="./dashboard.html"
                                                 id="navDashboard">Dashboard</a></li>
                                 <!-- Botão Sair -->
-                                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair do Perfil</a></li>
+                                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair do
+                                                Perfil</a></li>
                         </ul>
                 </nav>
-
-                <!-- Link do JavaScript -->
-                <script src="../js/sessao.js"></script>
-                <script src="js/navbar.js"></script>
         </header>
 
+        <div id="iniciar">
+                <div id="divInstrucoes">
+                        <p class="titulo">Desafie Seus Conhecimentos Sobre Minecraft!</p>
+                        <p>
+                                <span id="iniciar_usuario"></span>
+                                Você é realmente um especialista em Minecraft? Descubra agora mesmo! Responda perguntas
+                                sobre
+                                a criação de itens no jogo que encantou milhões de jogadores no mundo todo.
+                        </p>
+                        <p class="titulo">Como funciona:
+                        <ul>
+                                <li>São 3 questões.</li>
+                                <li>Cada questão vale 10 pontos.</li>
+                                <li>Será necessário montar 1 item em cada questão.</li>
+                                <li>Você terá apenas uma tentativa por questão. </li>
+                                <li>Você deve montar o item da forma correta. </li>
+                                <li>Ao final, compare seu desempenho com os amigos e veja quem é o Crafter Supremo!</li>
+                        </ul>
+                        </p>
+                        <div id="botaoIniciar">
+                                <p>Está pronto para começar?</p>
+                                <button onclick="iniciar()" class="botao">Vamos lá</button>
+                        </div>
+                </div>
+        </div>
 
 
         <div id="divCraftingTable">
@@ -182,6 +208,28 @@
 </html>
 
 <script>
+        function iniciar() {
+                const iniciar = document.getElementById('iniciar');
+
+                iniciar.style.display = "none"
+        }
+
+        // sessão
+        function validarSessao() {
+                var email = sessionStorage.EMAIL_USUARIO;
+                var nome = sessionStorage.NOME_USUARIO;
+
+                var b_usuario = document.getElementById("b_usuario");
+                var iniciar_usuario = document.getElementById("iniciar_usuario");
+
+                if (email != null && nome != null) {
+                        b_usuario.innerHTML = `Olá, ${nome}!`;
+                        iniciar_usuario.innerHTML = `Boas-vindas, ${nome}!`;
+                } else {
+                        window.location = "usuario.html"
+                }
+        }
+
         function dragStart(event) {
                 event.dataTransfer.setData("Text", event.target.id);
         }
@@ -450,8 +498,8 @@
                         body: JSON.stringify({
                                 // crie um atributo que recebe o valor recuperado aqui
                                 // Agora vá para o arquivo routes/usuario.js
-                                fkUsuarioServer: fkUsuario, 
-                                fkQuizServer: fkQuiz, 
+                                fkUsuarioServer: fkUsuario,
+                                fkQuizServer: fkQuiz,
                                 qtdAcertoServer: qtdAcerto,
                                 pontuacaoServer: pontuacao
                         }),
@@ -481,11 +529,58 @@
 
                 cadastrar();
 
-                divCraftingTable.innerHTML = `
-            <p class="titulo">Quiz finalizado!</p>
-            <p>Você acertou ${contadorPontos} de ${receitas.length} receitas!</p>
-                <button onclick="irParaDashboard()" class="botao">Ir para Dashboard</a>
-            `;
+                var mensagem;
+                if (contadorPontos == 0) {
+                        mensagem = `
+                        <div id="divMensagemFinal">
+                <p class="titulo">Quiz finalizado!</p>
+                <p>
+                Nhe, você conseguiu errar todos os craftings! 
+                <br>
+                Acho que precisa estudar um pouco mais...
+                </p>
+                <button onclick="irParaDashboard()" class="botao">Ver Resultados</a>         
+                </div>
+                        `;
+                } else if (contadorPontos == 1) {
+                        mensagem = `
+                        <div id="divMensagemFinal">
+                <p class="titulo">Quiz finalizado!</p>
+                <p>
+                Até que foi, você acertou <span style="font-size: 26px; color: red;">${contadorPontos}</span> de ${receitas.length} craftings! 
+                <br>
+                Talvez se jogar mais um pouco, pegue as manhas!
+                </p>
+                <button onclick="irParaDashboard()" class="botao">Ver Resultados</a>
+                </div>
+                        `;
+                } else if (contadorPontos == 2) {
+                        mensagem = `
+                        <div id="divMensagemFinal">
+                <p class="titulo">Quiz finalizado!</p>
+                <p>
+                Uau, muito bem, você acertou <span style="font-size: 26px; color: yellow;">${contadorPontos}</span> de ${receitas.length} craftings!
+                <br>
+                Você mostrou ser um Construtor de respeito!
+                </p>
+                <button onclick="irParaDashboard()" class="botao">Ver Resultados</a>
+                </div>
+                        `;
+                } else {
+                        mensagem = `
+                        <div id="divMensagemFinal">
+                <p class="titulo">Quiz finalizado!</p>
+                <p>
+                Wow, parabéns, você acertou  <span style="font-size: 26px; color: green;">${contadorPontos}</span> de ${receitas.length} creftings!
+                <br>
+                Você se mostrou ser um Crafter Supremo, nunca duvidei de você!
+                </p>
+                <button onclick="irParaDashboard()" class="botao">Ver Resultados</a>
+                </div>
+                `;
+                }
+
+                divCraftingTable.innerHTML = mensagem;
         }
 
         function irParaDashboard() {

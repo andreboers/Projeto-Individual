@@ -1,5 +1,6 @@
 var dashboardModel = require("../models/dashboardModel");
 
+// KPI's
 function exibirRank(req, res) {
     dashboardModel.exibirRank().then(function (resultado) {
         console.log(resultado)
@@ -13,7 +14,6 @@ function exibirRank(req, res) {
         res.status(500).json(erro.sqlMessage);
     })
 }
-
 
 function exibirPontuacao(req, res) {
     var nome = req.body.nomeServer;
@@ -31,7 +31,6 @@ function exibirPontuacao(req, res) {
     })
 }
 
-
 function exibirMediaDeAcertos(req, res) {
     var nome = req.body.nomeServer;
 
@@ -47,7 +46,6 @@ function exibirMediaDeAcertos(req, res) {
         res.status(500).json(erro.sqlMessage);
     })
 }
-
 
 function exibirQuantidadeDeTentativas(req, res) {
     var nome = req.body.nomeServer;
@@ -66,9 +64,30 @@ function exibirQuantidadeDeTentativas(req, res) {
 }
 
 
+// // Gráfico de Linha
+// function graficoLinha(req, res) {
+//     var nome = req.body.nomeServer;
+
+//     dashboardModel.graficoLinha(nome).then(function (resultado) {
+//         console.log(resultado)
+//         if (resultado.length > 0) {
+//             // console.log('entrei no if da media')
+//             res.status(200).json(resultado);
+//         } else {
+//             res.status(204).send("Nenhum resultado encontrado!")
+//         }
+//     }).catch(function (erro) {
+//         res.status(500).json(erro.sqlMessage);
+//     })
+// }
+
+
+
+
 module.exports = {
     exibirRank,
     exibirPontuacao,
     exibirMediaDeAcertos,
     exibirQuantidadeDeTentativas
+    // graficoLinha
 }

@@ -139,8 +139,19 @@ body {
 }
 #graficoLinha {
     width: 61.5%;
-}
+    background-color: var(--darkgray);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center ;
+}
+#graficos1,
+#graficos2 {
+    width: 100%;
+    height: 49%;
+    background-color: #222;
+}
 
 
 

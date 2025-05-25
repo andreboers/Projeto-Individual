@@ -20,4 +20,8 @@ router.post("/exibirQuantidadeDeTentativas", function (req, res) {
     dashboardController.exibirQuantidadeDeTentativas(req, res);
 });
 
+// router.post("/graficoLinha", function (req, res) {
+//     dashboardController.graficoLinha(req, res);
+// });
+
 module.exports = router;

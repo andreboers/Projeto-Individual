@@ -13,18 +13,18 @@ function exibirRank() {
 
             resposta.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
-                
-                for(var i = 0; i < resposta.length; i++){
+
+                for (var i = 0; i < resposta.length; i++) {
                     rank = resposta[i].ranking
                     pontuacaoTotal = resposta[i].pontuacaoTotal
 
-                    if(i == 0){
+                    if (i == 0) {
                         user_rank.innerHTML += `<p style="color: #FFD700; padding: 10px; margin: 0; font-size: 30px;"><i class="fa-solid fa-trophy"></i> ${rank} - ${pontuacaoTotal}</p> <br>`
                     }
-                    else if(i == 1){
+                    else if (i == 1) {
                         user_rank.innerHTML += `<p style="color: silver; padding: 10px; margin: 0; font-size: 30px;">2º ${rank} - ${pontuacaoTotal} </p><br>`
                     }
-                    else if(i == 2){
+                    else if (i == 2) {
                         user_rank.innerHTML += `<p style="color: #CD7F32; padding: 5px; margin: 0; font-size: 30px;">3º ${rank} - ${pontuacaoTotal}</p> <br>`
                     } else if (i < 10) {
                         user_rank.innerHTML += `<p style="color: white; padding: 5px; margin: 0; font-size: 30px;">${i + 1}º ${rank} - ${pontuacaoTotal} <br></p>`
