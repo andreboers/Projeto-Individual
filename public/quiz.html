@@ -31,9 +31,10 @@
                                 <!-- Quiz -->
                                 <li><a class="alinks hiddenHeader" href="./index.html" id="navQuiz">Inicio</a></li>
                                 <!-- Dashboard -->
-                                <li><a class="alinks hiddenHeader" href="./dashboard.html" id="navDashboard">Dashboard</a></li>
+                                <li><a class="alinks hiddenHeader" href="./dashboard.html"
+                                                id="navDashboard">Dashboard</a></li>
                                 <!-- Botão Sair -->
-                                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair</a></li>
+                                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair do Perfil</a></li>
                         </ul>
                 </nav>
 
@@ -433,7 +434,53 @@
                 }
         }
 
+
+        function cadastrar() {
+                var fkUsuario = sessionStorage.getItem("ID_USUARIO");
+                var fkQuiz = 1;
+                var qtdAcerto = contadorPontos;
+                var pontuacao = contadorPontos * 10;
+
+
+                fetch("/quiz/cadastrar", {
+                        method: "POST",
+                        headers: {
+                                "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                                // crie um atributo que recebe o valor recuperado aqui
+                                // Agora vá para o arquivo routes/usuario.js
+                                fkUsuarioServer: fkUsuario, 
+                                fkQuizServer: fkQuiz, 
+                                qtdAcertoServer: qtdAcerto,
+                                pontuacaoServer: pontuacao
+                        }),
+                })
+                        .then(function (resposta) {
+                                console.log("resposta: ", resposta);
+
+                                if (resposta.ok) {
+
+                                        console.log(resposta);
+
+                                        // setTimeout(() => {
+                                        //         voltarParaLogin()
+                                        // }, 3000);
+
+                                } else {
+                                        console.log(resposta);
+                                        throw "Houve um erro ao tentar realizar o cadastro!";
+                                }
+                        })
+                        .catch(function (resposta) {
+                                console.log(`#ERRO: ${resposta}`);
+                        });
+        }
+
         function mostrarResultadoFinal() {
+
+                cadastrar();
+
                 divCraftingTable.innerHTML = `
             <p class="titulo">Quiz finalizado!</p>
             <p>Você acertou ${contadorPontos} de ${receitas.length} receitas!</p>

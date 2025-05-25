@@ -617,6 +617,10 @@ i {
 
 /* Footer */
 #footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
     background: #1a1a1a;
     color: #fff;
     text-align: center;
@@ -624,3 +628,29 @@ i {
     height: 150px;
     margin-top: 60px;
 }
+
+#tituloRedeSociais {
+    padding: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
+}
+
+#divFooterRedes {
+    display: flex;
+    flex-direction: column;
+}
+
+#linksRedes {
+    display: flex;
+    flex-direction: row;
+}
+
+#linksRedes a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#linksRedes a:hover {
+    color: #888;
+}
+

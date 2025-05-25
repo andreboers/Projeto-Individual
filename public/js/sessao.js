@@ -27,7 +27,7 @@ function validarSessao() {
 }
 
 function sairSessao() {
-    window.location.reload()
+    window.location = "index.html"
     sessionStorage.clear();
 }
 

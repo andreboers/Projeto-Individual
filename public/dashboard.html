@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard.css">
 
-    <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/sessao.js"></script>
 
     <title>Dashboard | MineTech</title>
 </head>
 
-<body onload="validarSessao()">
+<body
+    onload="validarUsuario(),exibirRank(), exibirPontuacao(), exibirMediaDeAcertos(), exibirQuantidadeDeTentativas() ">
     <!-- Menu Lateral da página -->
     <div class="menuLateral">
-        <div><span id="b_usuario"></span></div>
-        <hr>
+        <div id="textoPainel"></div>
+        <a href="index.html" class="botao">Inicio</a>
+        <a href="quiz.html" class="botao">Quiz</a>
+        <a class="botao" onclick="sairSessao()">Sair do Perfil</a>
     </div>
 
     <!-- Conteúdo da Dashboard -->
@@ -23,35 +31,32 @@
         <div id="box1">
             <!-- Indicador 1 -->
             <div class="indicadores" id="i_1">
-
+                <p class="tituloIndicadores">Sua pontuação</p>
+                <div id="user_pontuacao"></div>
             </div>
             <!-- Indicador 2 -->
             <div class="indicadores" id="i_2">
-
+                <p class="tituloIndicadores">Tentativas do Quiz</p>
+                <div id="user_qtdTentativas"></div>
             </div>
             <!-- Indicador 3 -->
             <div class="indicadores" id="i_3">
-
+                <p class="tituloIndicadores">Média de Acertos do Quiz</p>
+                <div id="user_mediaAcertos"></div>
             </div>
-            <!-- Indicador 4 -->
-            <div class="indicadores" id="i_4">
 
-            </div>
         </div>
 
         <!-- Gráficos -->
         <div id="box2">
             <div id="divGraficos">
-                <div class="graficos">
+                <div class="graficos" id="graficoLinha">
 
                 </div>
-                <div class="graficos">
-
+                <div class="graficos" id="graficoRank">
+                    <p>Ranking de Pontos por Usuários</p>
+                    <div id="user_rank"></div>
                 </div>
-            </div>
-
-            <div id="divRank">
-
             </div>
         </div>
 
@@ -60,3 +65,20 @@
 </body>
 
 </html>
+
+<script src="./js/dashboard.js"></script>
+
+<script>
+    function validarUsuario() {
+        var email = sessionStorage.EMAIL_USUARIO;
+        var nome = sessionStorage.NOME_USUARIO;
+
+        if (email != null && nome != null) {
+            textoPainel.innerHTML = `Painel de ${nome}<br>
+            ${email}`;
+        }
+    }
+
+
+
+</script>
