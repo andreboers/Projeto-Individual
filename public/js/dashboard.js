@@ -14,8 +14,6 @@ function exibirRank() {
             resposta.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
                 
- 
-
                 for(var i = 0; i < resposta.length; i++){
                     rank = resposta[i].ranking
                     pontuacaoTotal = resposta[i].pontuacaoTotal
@@ -31,14 +29,7 @@ function exibirRank() {
                     } else if (i < 10) {
                         user_rank.innerHTML += `<p style="color: white; padding: 5px; margin: 0; font-size: 30px;">${i + 1}º ${rank} - ${pontuacaoTotal} <br></p>`
                     }
-
-
-
-
                 }
-
-                
-
 
             })
 
