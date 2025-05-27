@@ -5,7 +5,7 @@ function exibirRank(req, res) {
     dashboardModel.exibirRank().then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if')
+            console.log('entrei no if da função "exibirRank"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -21,7 +21,7 @@ function exibirPontuacao(req, res) {
     dashboardModel.exibirPontuacao(nome).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da media')
+            console.log('entrei no if da função "exibirPontuacao"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -37,7 +37,7 @@ function exibirMediaDeAcertos(req, res) {
     dashboardModel.exibirMediaDeAcertos(nome).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da media')
+            console.log('entrei no if da função "exibirMediaDeAcertos"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -53,7 +53,7 @@ function exibirQuantidadeDeTentativas(req, res) {
     dashboardModel.exibirQuantidadeDeTentativas(nome).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da media')
+            console.log('entrei no if da função "exibirQuantidadeDeTentativas"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -64,22 +64,20 @@ function exibirQuantidadeDeTentativas(req, res) {
 }
 
 
-// // Gráfico de Linha
-// function graficoLinha(req, res) {
-//     var nome = req.body.nomeServer;
-
-//     dashboardModel.graficoLinha(nome).then(function (resultado) {
-//         console.log(resultado)
-//         if (resultado.length > 0) {
-//             // console.log('entrei no if da media')
-//             res.status(200).json(resultado);
-//         } else {
-//             res.status(204).send("Nenhum resultado encontrado!")
-//         }
-//     }).catch(function (erro) {
-//         res.status(500).json(erro.sqlMessage);
-//     })
-// }
+// Gráfico de Linha
+function tentativasPorUsuario(req, res) {
+    dashboardModel.tentativasPorUsuario().then(function (resultado) {
+        console.log(resultado)
+        if (resultado.length > 0) {
+            console.log('Entrei no if da função "tentativaPorUsuario"')
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        res.status(500).json(erro.sqlMessage);
+    })
+}
 
 
 
@@ -88,6 +86,6 @@ module.exports = {
     exibirRank,
     exibirPontuacao,
     exibirMediaDeAcertos,
-    exibirQuantidadeDeTentativas
-    // graficoLinha
+    exibirQuantidadeDeTentativas,
+    tentativasPorUsuario
 }

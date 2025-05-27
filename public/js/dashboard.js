@@ -1,4 +1,6 @@
 
+
+// KPI´s
 // Função para Exibir o Rank
 function exibirRank() {
     fetch("/dashboard/exibirRank", {
@@ -180,3 +182,41 @@ function exibirQuantidadeDeTentativas() {
 }
 
 
+// Gráficos
+// Função para trazer dados de Nome e Quantidade de Tentativas de cada Usuário
+function tentativasPorUsuario() {
+    fetch("/dashboard/tentativasPorUsuario", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO tentativasPorUsuario()!")
+
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
+
+                for (var i = 0; i < resposta.length; i++) {
+
+                }
+
+            })
+
+        } else {
+
+            console.log("Houve um erro ao tentar exibir a média de acertos!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}

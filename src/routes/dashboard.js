@@ -4,7 +4,6 @@ var router = express.Router();
 var dashboardController = require("../controllers/dashboardController");
 
 router.get("/exibirRank", function (req, res) {
-    // função a ser chamada quando acessar /carros/listar
     dashboardController.exibirRank(req, res);
 });
 
@@ -20,8 +19,8 @@ router.post("/exibirQuantidadeDeTentativas", function (req, res) {
     dashboardController.exibirQuantidadeDeTentativas(req, res);
 });
 
-// router.post("/graficoLinha", function (req, res) {
-//     dashboardController.graficoLinha(req, res);
-// });
+router.get("/tentativasPorUsuario", function (req, res) {
+    dashboardController.tentativasPorUsuario(req, res);
+});
 
 module.exports = router;

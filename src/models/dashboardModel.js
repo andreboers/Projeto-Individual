@@ -61,35 +61,31 @@ function exibirQuantidadeDeTentativas(nome) {
     `
 
     console.log("Executando a instrução SQL: \n" + instrucao);
-
     return database.executar(instrucao);
 }
 
 
 
 // Gráficos
-// function graficoLinha(nome) {
-//     var instrucao = `
-//         select u.nome as Nome,
-//         date_format(dtTentativa, '%d/%m/%Y %H:%i') AS dataTentativa,
-//         qtdAcertos
-//         from pontuacao p
-//         join usuario u 
-//         on u.id = p.fkUsuario
-//         where u.nome = '${nome}'
-//         order by dtTentativa;
-//     `
-
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-
-//     return database.executar(instrucao);
-// }
+function tentativasPorUsuario() {
+    var instrucao = `
+        select u.nome as Nome,
+        count(idTentativa) as Tentativas
+	    from pontuacao p
+        join usuario u 
+        on u.id = p.fkUsuario
+        group by u.nome;
+    `
+   
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
     exibirRank,
     exibirPontuacao,
     exibirMediaDeAcertos,
-    exibirQuantidadeDeTentativas
-    // graficoLinha
+    exibirQuantidadeDeTentativas,
+    tentativasPorUsuario
 }

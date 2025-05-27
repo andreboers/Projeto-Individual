@@ -174,13 +174,17 @@ nav {
     cursor: default;
 }
 
-.visibleHeader {
-    display: flex;
+#b_usuario {
+    cursor: normal;
 }
 
-.hiddenHeader {
-    display: none;
+#navSair,
+#navQuiz,
+#navDashboard {
+    cursor: pointer;
 }
+
+
 
 /* Estrutura antes de Iniciar */
 #iniciar {
@@ -228,6 +232,7 @@ nav {
     margin: 0;
     padding: 0 100px 0 100px;
 }
+
 #divInstrucoes li {
     font-size: 26px;
     margin: 0;
@@ -408,9 +413,9 @@ nav {
     height: 100px;
 
     display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
 }
 
@@ -429,4 +434,39 @@ justify-content: space-between;
 .botao:active {
     transform: scale(0.99);
     background-color: var(--verdeOpaco);
+}
+
+#ChibiMinecraftGif {
+    background-image: url(../assets/ChibiSteveMinecraft.gif);
+    background-size: contain;
+
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 176px;
+
+    position: relative;
+
+    animation: mover 8s infinite linear;
+}
+
+
+@keyframes mover {
+    0% {
+        left: 0;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 200px;
+        transform: scaleX(1);
+    }
+
+    51% {
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 0;
+        transform: scaleX(-1);
+    }
 }

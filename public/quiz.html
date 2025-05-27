@@ -7,7 +7,6 @@
 
         <link rel="stylesheet" href="css/quiz.css">
 
-        <script src="js/navbar.js"></script>
 
         <title>MineTech | Quiz</title>
 </head>
@@ -30,18 +29,19 @@
                         <!-- Lista de Botões Laterais -->
                         <ul class="nav-list">
                                 <!-- Login -->
-                                <li><a class="alinks" href="../usuario.html" id="b_usuario">Faça seu Login</a></li>
+                                <li><a class="alinks" id="b_usuario">Faça seu Login</a></li>
 
                                 <!-- Quiz -->
-                                <li><a class="alinks hiddenHeader" href="./index.html" id="navQuiz">Inicio</a></li>
+                                <li><a class="alinks" href="./index.html" id="navQuiz">Inicio</a></li>
                                 <!-- Dashboard -->
-                                <li><a class="alinks hiddenHeader" href="./dashboard.html"
-                                                id="navDashboard">Dashboard</a></li>
+                                <li><a class="alinks" href="./dashboard.html" id="navDashboard">Dashboard</a></li>
                                 <!-- Botão Sair -->
-                                <li><a class="alinks hiddenHeader" onclick="sairSessao()" id="navSair">Sair do
+                                <li><a class="alinks" onclick="sairSessao()" id="navSair">Sair do
                                                 Perfil</a></li>
                         </ul>
+
                 </nav>
+                <script src="js/navbar.js"></script>
         </header>
 
         <div id="iniciar">
@@ -70,6 +70,7 @@
                 </div>
         </div>
 
+        <div id="ChibiMinecraftGif"></div>
 
         <div id="divCraftingTable">
                 <span class="titulo" id="tituloQuestao"></span>
@@ -203,6 +204,7 @@
                                 Questão</button>
                 </div>
         </div>
+
 </body>
 
 </html>
@@ -225,10 +227,19 @@
                 if (email != null && nome != null) {
                         b_usuario.innerHTML = `Olá, ${nome}!`;
                         iniciar_usuario.innerHTML = `Boas-vindas, ${nome}!`;
+
+                        b_usuario.style.cursor = "default"
                 } else {
                         window.location = "usuario.html"
                 }
         }
+
+
+        function sairSessao() {
+                window.location = "index.html"
+                sessionStorage.clear();
+        }
+
 
         function dragStart(event) {
                 event.dataTransfer.setData("Text", event.target.id);

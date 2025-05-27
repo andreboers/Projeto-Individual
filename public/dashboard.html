@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 
     <script src="js/dashboard.js"></script>
     <script src="js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <title>Dashboard | MineTech</title>
 </head>
 
 <body
-    onload="validarUsuario(),exibirRank(), exibirPontuacao(), exibirMediaDeAcertos(), exibirQuantidadeDeTentativas() ">
+    onload="validarUsuario(),exibirRank(), exibirPontuacao(), exibirMediaDeAcertos(), exibirQuantidadeDeTentativas(), obterDadosTentativasPorUsuario() ">
     <!-- Menu Lateral da página -->
     <div class="menuLateral">
         <div id="textoPainel"></div>
@@ -52,10 +57,10 @@
             <div id="divGraficos">
                 <div class="graficos" id="graficoLinha">
                     <div id="graficos1">
-                        <!-- <canvas id="graficoLinha"></canvas> -->
+                        <!-- <canvas id="grafico"></canvas> -->
                     </div>
                     <div id="graficos2">
-                        <!-- <canvas id="graficoBarra"></canvas> -->
+                        <canvas id="graficoTentativasUsuarios"></canvas>
                     </div>
                 </div>
                 <div class="graficos" id="graficoRank">
@@ -83,5 +88,120 @@
             ${email}`;
         }
     }
+
+
+    // Função para obter os Nomes e Tentativas dos Usuários
+    function obterDadosTentativasPorUsuario() {
+        fetch(`/dashboard/tentativasPorUsuario`, { cache: 'no-store' }).then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados obtidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoTentativaPorUsuario(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoTentativaPorUsuario(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+        var valores = [];
+
+        console.log(resposta)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.Nome);
+            valores.push(registro.Tentativas);
+        }
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(valores)
+
+        const ctx = document.getElementById('graficoTentativasUsuarios');
+
+        Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = '#333';
+
+        new Chart(ctx, {
+
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Tentativas',
+                    data: valores,
+                    borderWidth: 1,
+                    backgroundColor: ['#6cc349', '#61B5CB', '#D5A0C4'],
+
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Tentativas dos Usuários',
+                        font: {
+                            family: 'VT323',
+                            size: 30,
+                            weight: 'normal',
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        font: {
+                            family: 'VT323',
+                            size: 32,
+                            weight: 'normal'
+                        }
+                    },
+                    tooltip: {
+                        bodyFont: {
+                            family: 'VT323',
+                            size: 20
+                        }
+                    }
+                },
+
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                family: 'VT323',
+                                size: 20
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                family: 'VT323',
+                                size: 20
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+
 
 </script>

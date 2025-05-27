@@ -107,12 +107,10 @@ select u.nome as 'Nome do Usuário',
     
 
 -- Gráficos
--- Select para exibir as tentativas por data do usuário
--- select u.nome as Nome,
---      date_format(dtTentativa, '%d/%m/%Y %H:%i') AS dataTentativa,
--- 		qtdAcertos
--- 		from pontuacao p
--- 		join usuario u 
---  	on u.id = p.fkUsuario
--- 		where u.nome = 'André'
---  	order by dtTentativa;
+-- Select para exibir as tentativas de cada usuário em um gráfico de barras
+select u.nome as Nome,
+	count(idTentativa) as Tentativas
+	from pontuacao p
+    join usuario u 
+  	on u.id = p.fkUsuario
+  	group by u.nome;
