@@ -17,12 +17,11 @@
     <script src="js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
     <title>Dashboard | MineTech</title>
 </head>
 
 <body
-    onload="validarUsuario(),exibirRank(), exibirPontuacao(), exibirMediaDeAcertos(), exibirQuantidadeDeTentativas(), obterDadosTentativasPorUsuario() ">
+    onload="validarUsuario(),exibirRank(), exibirPontuacao(), exibirMediaDeAcertos(), exibirQuantidadeDeTentativas(), obterDadosTentativasPorUsuario(), obterDadosAcertosPorTentativa() ">
     <!-- Menu Lateral da página -->
     <div class="menuLateral">
         <div id="textoPainel"></div>
@@ -56,15 +55,18 @@
         <div id="box2">
             <div id="divGraficos">
                 <div class="graficos" id="graficoLinha">
+                    <!-- Gráfico de Linha -->
                     <div id="graficos1">
-                        <!-- <canvas id="grafico"></canvas> -->
+                        <canvas id="graficoAcertosPorTentativa"></canvas>
                     </div>
+                    <!-- Gráfico de Barras -->
                     <div id="graficos2">
                         <canvas id="graficoTentativasUsuarios"></canvas>
                     </div>
                 </div>
+                <!-- Ranking de Jogadores -->
                 <div class="graficos" id="graficoRank">
-                    <p>Ranking de Pontos por Usuários</p>
+                    <p>Ranking de Pontos dos Jogadores</p>
                     <div id="user_rank"></div>
                 </div>
             </div>
@@ -75,133 +77,3 @@
 </body>
 
 </html>
-
-<script src="./js/dashboard.js"></script>
-
-<script>
-    function validarUsuario() {
-        var email = sessionStorage.EMAIL_USUARIO;
-        var nome = sessionStorage.NOME_USUARIO;
-
-        if (email != null && nome != null) {
-            textoPainel.innerHTML = `Painel de ${nome}<br>
-            ${email}`;
-        }
-    }
-
-
-    // Função para obter os Nomes e Tentativas dos Usuários
-    function obterDadosTentativasPorUsuario() {
-        fetch(`/dashboard/tentativasPorUsuario`, { cache: 'no-store' }).then(function (response) {
-            console.log(response)
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados obtidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGraficoTentativaPorUsuario(resposta);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    function plotarGraficoTentativaPorUsuario(resposta) {
-
-        console.log('iniciando plotagem do gráfico...');
-
-        let labels = [];
-        var valores = [];
-
-        console.log(resposta)
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.Nome);
-            valores.push(registro.Tentativas);
-        }
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(valores)
-
-        const ctx = document.getElementById('graficoTentativasUsuarios');
-
-        Chart.defaults.color = '#fff';
-        Chart.defaults.borderColor = '#333';
-
-        new Chart(ctx, {
-
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Tentativas',
-                    data: valores,
-                    borderWidth: 1,
-                    backgroundColor: ['#6cc349', '#61B5CB', '#D5A0C4'],
-
-                    barPercentage: 0.7,
-                    categoryPercentage: 0.7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Tentativas dos Usuários',
-                        font: {
-                            family: 'VT323',
-                            size: 30,
-                            weight: 'normal',
-                        }
-                    },
-                    legend: {
-                        display: true,
-                        font: {
-                            family: 'VT323',
-                            size: 32,
-                            weight: 'normal'
-                        }
-                    },
-                    tooltip: {
-                        bodyFont: {
-                            family: 'VT323',
-                            size: 20
-                        }
-                    }
-                },
-
-                scales: {
-                    x: {
-                        ticks: {
-                            font: {
-                                family: 'VT323',
-                                size: 20
-                            }
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            font: {
-                                family: 'VT323',
-                                size: 20
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-
-
-</script>

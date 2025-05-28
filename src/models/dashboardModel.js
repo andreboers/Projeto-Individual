@@ -76,16 +76,34 @@ function tentativasPorUsuario() {
         on u.id = p.fkUsuario
         group by u.nome;
     `
-   
+
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
+function acertosPorTentativa(nome) {
+    var instrucao = `
+    select u.nome as Nome,
+        count(idTentativa) as Tentativa,
+        p.qtdAcertos as Acertos,
+        DATE_FORMAT(p.dtTentativa, '%d/%m') AS dataTentativa
+        from pontuacao p
+        join usuario u
+        on u.id = p.fkUsuario
+        where u.nome = '${nome}'
+        group by u.nome, qtdAcertos, dtTentativa
+        order by p.dtTentativa desc;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     exibirRank,
     exibirPontuacao,
     exibirMediaDeAcertos,
     exibirQuantidadeDeTentativas,
-    tentativasPorUsuario
+    tentativasPorUsuario,
+    acertosPorTentativa
 }

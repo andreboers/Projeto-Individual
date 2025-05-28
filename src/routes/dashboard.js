@@ -23,4 +23,8 @@ router.get("/tentativasPorUsuario", function (req, res) {
     dashboardController.tentativasPorUsuario(req, res);
 });
 
+router.post("/acertosPorTentativa", function (req, res) {
+    dashboardController.acertosPorTentativa(req, res);
+});
+
 module.exports = router;

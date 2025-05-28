@@ -77,7 +77,7 @@ select u.nome as 'Nome do Usuário',
     join usuario u on p.fkUsuario = u.id
     join quiz q on q.idQuiz = p.fkQuiz
     group by u.nome
-    having u.nome = 'André';
+    having u.nome = 'André'; -- ${nome}
     
     
 -- Select para exibir a média de acertos do usuário
@@ -90,7 +90,7 @@ select u.nome as 'Nome do Usuário',
 	join quiz q 
     on p.fkQuiz = q.idQuiz
 	group by u.nome, q.nomeQuiz
-    having u.nome = 'Duda'
+    having u.nome = 'Duda' -- ${nome}
 	order by u.nome, avg(p.qtdAcertos) desc;
 
 -- Select para exibir a quantidade de tentativas
@@ -102,7 +102,7 @@ select u.nome as 'Nome do Usuário',
 	join quiz q 
 	on q.idQuiz = p.fkQuiz
 	group by u.nome
-	having u.nome = 'André';
+	having u.nome = 'André'; -- ${nome}
     
     
 
@@ -114,3 +114,16 @@ select u.nome as Nome,
     join usuario u 
   	on u.id = p.fkUsuario
   	group by u.nome;
+
+
+-- Select para mostrar a quantidade de acertos por tentativa do usuário
+select u.nome as Nome,
+	count(idTentativa) as Tentativa,
+	p.qtdAcertos as Acertos,
+    p.dtTentativa
+    from pontuacao p
+    join usuario u
+    on u.id = p.fkUsuario
+    where u.nome = 'André' -- ${nome}
+    group by u.nome, qtdAcertos, dtTentativa
+    order by p.dtTentativa desc;
