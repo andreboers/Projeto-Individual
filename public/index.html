@@ -71,7 +71,11 @@
         <!-- Div Box 2 -->
         <div class="divBox2">
             <p class="titulos">O que é o Minecraft?</p>
-            <div id="ChibiSteveGif"></div>
+            <div id="ChibiSteveGif" onclick="verDialogoSteve()">
+            </div>
+            <div id="dialogoSteve">
+                    <p>Olá, aventureiro! Bem-vindo ao MineTech!</p>
+            </div>
             <div id="containerIntroducao">
 
                 <div id="divBoxIntroducao1">
@@ -131,8 +135,8 @@
             <div id="cardJogos">
 
                 <!-- Card Minecraft Dungeons -->
-                <div id="trianguloMinecraftDungeons" class="hidden"></div>
-                <div id="boxMinecraftDungeons" class="hidden">
+                <div id="trianguloMinecraftDungeons"></div>
+                <div id="boxMinecraftDungeons">
                     <div class="containerCards1">
                         <span class="titulos">Galeria</span>
                         <div class="galeria" id="galeriaDungeons1">
@@ -217,8 +221,8 @@
 
 
                 <!-- Card Minecraft Legends -->
-                <div id="trianguloMinecraftLegends" class="hidden"></div>
-                <div id="boxMinecraftLegends" class="hidden">
+                <div id="trianguloMinecraftLegends"></div>
+                <div id="boxMinecraftLegends">
                     <div class="containerCards1">
                         <span class="titulos">Galeria</span>
                         <div class="galeria" id="galeriaLegends1">
@@ -304,8 +308,8 @@
 
 
                 <!-- Card Minecraft Bedrock -->
-                <div id="trianguloMinecraftBedrock" class="hidden"></div>
-                <div id="boxMinecraftBedrock" class="hidden">
+                <div id="trianguloMinecraftBedrock"></div>
+                <div id="boxMinecraftBedrock">
                     <div class="containerCards1">
                         <span class="titulos">Galeria</span>
                         <div class="galeria" id="galeriaBedrock1">
@@ -493,5 +497,13 @@
         boxMinecraftBedrock.style.display = 'none'
 
         tituloSobre.style.marginTop = '0'
+    }
+
+    function verDialogoSteve() {
+        if(dialogoSteve.style.visibility == 'visible') {
+            dialogoSteve.style.visibility = 'hidden'
+        } else {
+            dialogoSteve.style.visibility = 'visible'
+        }
     }
 </script>

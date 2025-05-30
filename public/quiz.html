@@ -507,8 +507,6 @@
                                 "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                                // crie um atributo que recebe o valor recuperado aqui
-                                // Agora vá para o arquivo routes/usuario.js
                                 fkUsuarioServer: fkUsuario,
                                 fkQuizServer: fkQuiz,
                                 qtdAcertoServer: qtdAcerto,
@@ -521,10 +519,6 @@
                                 if (resposta.ok) {
 
                                         console.log(resposta);
-
-                                        // setTimeout(() => {
-                                        //         voltarParaLogin()
-                                        // }, 3000);
 
                                 } else {
                                         console.log(resposta);
