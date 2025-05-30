@@ -73,9 +73,9 @@
             <p class="titulos">O que é o Minecraft?</p>
             <div id="ChibiSteveGif"></div>
             <div id="containerIntroducao">
-                
+
                 <div id="divBoxIntroducao1">
-                    
+
                     <div id="divVideo">
                         <video width="900" height="500" autoplay muted loop playsinline>
                             <source src="assets/TrailerMinecraft.webm" type="video/webm">
@@ -101,10 +101,11 @@
                 </div>
             </div>
             <div id="ganchoJogos"></div>
-<br>
+            <br>
             <!-- Jogos -->
             <div id="jogos"></div>
             <p class="titulos">Jogos</p>
+            <p>Clique em um Card para mais informações</p>
 
             <div class="divBox3">
                 <div class="boxDungeons" onclick="verDungeons()">
@@ -446,80 +447,51 @@
 
 <script>
     function verDungeons() {
-        document.getElementById('trianguloMinecraftDungeons').classList.add('visible');
-        document.getElementById('boxMinecraftDungeons').classList.add('visible');
-        document.getElementById('trianguloMinecraftDungeons').classList.remove('hidden');
-        document.getElementById('boxMinecraftDungeons').classList.remove('hidden');
+        trianguloMinecraftDungeons.style.display = 'flex'
+        boxMinecraftDungeons.style.display = 'flex'
 
-        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
-        document.getElementById('boxMinecraftLegends').classList.add('hidden');
-        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
-        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+        trianguloMinecraftLegends.style.display = 'none'
+        boxMinecraftLegends.style.display = 'none'
+        trianguloMinecraftBedrock.style.display = 'none'
+        boxMinecraftBedrock.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
-        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
-        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
-        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
-
-        document.getElementById('tituloSobre').classList.add('margin');
+        tituloSobre.style.marginTop = '900px'
     }
     function verLegends() {
-        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
-        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
-        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
-        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+        trianguloMinecraftDungeons.style.display = 'none'
+        boxMinecraftDungeons.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftLegends').classList.add('visible');
-        document.getElementById('boxMinecraftLegends').classList.add('visible');
-        document.getElementById('trianguloMinecraftLegends').classList.remove('hidden');
-        document.getElementById('boxMinecraftLegends').classList.remove('hidden');
+        trianguloMinecraftLegends.style.display = 'flex'
+        boxMinecraftLegends.style.display = 'flex'
 
-        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
-        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
-        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
-        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
+        trianguloMinecraftBedrock.style.display = 'none'
+        boxMinecraftBedrock.style.display = 'none'
 
-        document.getElementById('tituloSobre').classList.add('margin');
+        tituloSobre.style.marginTop = '900px'
     }
     function verBedrock() {
-        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
-        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
-        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
-        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+        trianguloMinecraftDungeons.style.display = 'none'
+        boxMinecraftDungeons.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
-        document.getElementById('boxMinecraftLegends').classList.add('hidden');
-        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
-        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+        trianguloMinecraftLegends.style.display = 'none'
+        boxMinecraftLegends.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftBedrock').classList.add('visible');
-        document.getElementById('boxMinecraftBedrock').classList.add('visible');
-        document.getElementById('trianguloMinecraftBedrock').classList.remove('hidden');
-        document.getElementById('boxMinecraftBedrock').classList.remove('hidden');
+        trianguloMinecraftBedrock.style.display = 'flex'
+        boxMinecraftBedrock.style.display = 'flex'
 
-        document.getElementById('tituloSobre').classList.add('margin');
+        tituloSobre.style.marginTop = '900px'
     }
 
     function fecharAbas() {
-        document.getElementById('trianguloMinecraftDungeons').classList.add('hidden');
-        document.getElementById('boxMinecraftDungeons').classList.add('hidden');
-        document.getElementById('trianguloMinecraftDungeons').classList.remove('visible');
-        document.getElementById('boxMinecraftDungeons').classList.remove('visible');
+         trianguloMinecraftDungeons.style.display = 'none'
+        boxMinecraftDungeons.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftLegends').classList.add('hidden');
-        document.getElementById('boxMinecraftLegends').classList.add('hidden');
-        document.getElementById('trianguloMinecraftLegends').classList.remove('visible');
-        document.getElementById('boxMinecraftLegends').classList.remove('visible');
+        trianguloMinecraftLegends.style.display = 'none'
+        boxMinecraftLegends.style.display = 'none'
 
-        document.getElementById('trianguloMinecraftBedrock').classList.add('hidden');
-        document.getElementById('boxMinecraftBedrock').classList.add('hidden');
-        document.getElementById('trianguloMinecraftBedrock').classList.remove('visible');
-        document.getElementById('boxMinecraftBedrock').classList.remove('visible');
+        trianguloMinecraftBedrock.style.display = 'none'
+        boxMinecraftBedrock.style.display = 'none'
 
-        document.getElementById('tituloSobre').classList.remove('margin');
+        tituloSobre.style.marginTop = '0'
     }
-
-
-
-
 </script>
