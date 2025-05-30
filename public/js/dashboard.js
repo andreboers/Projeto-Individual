@@ -28,6 +28,7 @@ function exibirRank() {
                 for (var i = 0; i < resposta.length; i++) {
                     rank = resposta[i].ranking
                     pontuacaoTotal = resposta[i].pontuacaoTotal
+                    console.log(resposta)
 
                     if (i == 0) {
                         user_rank.innerHTML += `<p style="color: #FFD700; padding: 10px; margin: 0; font-size: 30px;"><i class="fa-solid fa-trophy"></i> ${rank} - ${pontuacaoTotal}</p> <br>`
@@ -64,7 +65,7 @@ function exibirRank() {
 // Função de Exibir Pontuacao
 function exibirPontuacao() {
 
-    var nome = sessionStorage.getItem("NOME_USUARIO");
+    var id = sessionStorage.getItem("ID_USUARIO");
 
     fetch("/dashboard/exibirPontuacao", {
         method: "POST",
@@ -72,7 +73,7 @@ function exibirPontuacao() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeServer: nome
+            idServer: id
         }),
     })
         .then(function (resposta) {
@@ -82,7 +83,7 @@ function exibirPontuacao() {
 
                 resposta.json().then(function (resposta) {
                     console.log(`\n == Função exibirPontuacao() \nDados recebidos: ${JSON.stringify(resposta)}`)
-                    pontuacao = resposta[0].pontuacao
+                    pontuacao = resposta[0].pontuacaoTotal
                     user_pontuacao.innerHTML = pontuacao
                 })
 
@@ -107,7 +108,7 @@ function exibirPontuacao() {
 // Função para Exibir a Média de Acertos
 function exibirMediaDeAcertos() {
 
-    var nome = sessionStorage.getItem("NOME_USUARIO");
+    var id = sessionStorage.getItem("ID_USUARIO");
 
     fetch("/dashboard/exibirMediaDeAcertos", {
         method: "POST",
@@ -115,7 +116,7 @@ function exibirMediaDeAcertos() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeServer: nome
+            idServer: id
         }),
     })
         .then(function (resposta) {
@@ -125,8 +126,8 @@ function exibirMediaDeAcertos() {
 
                 resposta.json().then(function (resposta) {
                     console.log(`\n == Função exibirMediaDeAcertos() \nDados recebidos: ${JSON.stringify(resposta)}`)
-                    media = resposta[0].mediaAcertos
-                    user_mediaAcertos.innerHTML = media
+                    media = resposta[0].Media
+                    user_mediaAcertos.innerHTML = `${media}%`
                 })
 
             } else {
@@ -150,7 +151,7 @@ function exibirMediaDeAcertos() {
 // Função para Exibir a Quantidade de Tentativas
 function exibirQuantidadeDeTentativas() {
 
-    var nome = sessionStorage.getItem("NOME_USUARIO");
+    var id = sessionStorage.getItem("ID_USUARIO");
 
     fetch("/dashboard/exibirQuantidadeDeTentativas", {
         method: "POST",
@@ -158,7 +159,7 @@ function exibirQuantidadeDeTentativas() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeServer: nome
+            idServer: id
         }),
     })
         .then(function (resposta) {
@@ -292,7 +293,7 @@ function plotarGraficoTentativaPorUsuario(resposta) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: false, 
             plugins: {
                 title: {
                     display: true,
@@ -340,7 +341,7 @@ function plotarGraficoTentativaPorUsuario(resposta) {
 // Gráfico Acertos por Tentativas
 function acertosPorTentativa() {
 
-    var nome = sessionStorage.getItem("NOME_USUARIO");
+    var id = sessionStorage.getItem("ID_USUARIO");
 
     fetch("/dashboard/acertosPorTentativa", {
         method: "POST",
@@ -348,7 +349,7 @@ function acertosPorTentativa() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeServer: nome
+            idServer: id
         }),
     })
         .then(function (resposta) {
@@ -383,7 +384,7 @@ function acertosPorTentativa() {
 // Obter Dados para o Gráfico de Acertos por Tentativa
 function obterDadosAcertosPorTentativa() {
 
-    var nome = sessionStorage.getItem("NOME_USUARIO");
+    var id = sessionStorage.getItem("ID_USUARIO");
 
     fetch(`/dashboard/acertosPorTentativa`, {
         method: 'POST',
@@ -392,7 +393,7 @@ function obterDadosAcertosPorTentativa() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            nomeServer: nome
+            idServer: id
         })
     })
         .then(function (response) {

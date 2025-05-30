@@ -16,9 +16,9 @@ function exibirRank(req, res) {
 }
 
 function exibirPontuacao(req, res) {
-    var nome = req.body.nomeServer;
+    var id = req.body.idServer;
 
-    dashboardModel.exibirPontuacao(nome).then(function (resultado) {
+    dashboardModel.exibirPontuacao(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
             // console.log('entrei no if da função "exibirPontuacao"')
@@ -32,9 +32,9 @@ function exibirPontuacao(req, res) {
 }
 
 function exibirMediaDeAcertos(req, res) {
-    var nome = req.body.nomeServer;
+    var id = req.body.idServer;
 
-    dashboardModel.exibirMediaDeAcertos(nome).then(function (resultado) {
+    dashboardModel.exibirMediaDeAcertos(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
             // console.log('entrei no if da função "exibirMediaDeAcertos"')
@@ -48,9 +48,9 @@ function exibirMediaDeAcertos(req, res) {
 }
 
 function exibirQuantidadeDeTentativas(req, res) {
-    var nome = req.body.nomeServer;
+    var id = req.body.idServer;
 
-    dashboardModel.exibirQuantidadeDeTentativas(nome).then(function (resultado) {
+    dashboardModel.exibirQuantidadeDeTentativas(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
             // console.log('entrei no if da função "exibirQuantidadeDeTentativas"')
@@ -80,9 +80,9 @@ function tentativasPorUsuario(req, res) {
 }
 
 function acertosPorTentativa(req, res) {
-    var nome = req.body.nomeServer;
+    var id = req.body.idServer;
 
-    dashboardModel.acertosPorTentativa(nome).then(function (resultado) {
+    dashboardModel.acertosPorTentativa(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
             // console.log('entrei no if da função "acertosPorTentativa"')

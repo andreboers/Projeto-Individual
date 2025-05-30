@@ -640,13 +640,48 @@ i {
 }
 
 
-#ChibiMinecraftGif {
+
+/* Chibi´s Animados */
+
+#ChibiVillagerGif {
+    background-image: url(../assets/ChibiVillagerMinecraft.gif);
+    background-size: contain;
+    
+    background-repeat: no-repeat;
+    background-position: end;
+    
+    width: 150px;
+    height: 86px;
+    
+    position: relative;
+    right: 50px;
+    padding-left: 50px;   
+
+    animation: mover 20s infinite linear;
+}
+
+#ChibiPigGif {
+    background-image: url(../assets/ChibiPigMinecraft.gif);
+    background-size: contain;
+    
+    background-repeat: no-repeat;
+    background-position: end;
+    
+    width: 150px;
+    height: 86px;
+    
+    position: relative;
+    
+    animation: mover 15s infinite linear;
+}
+
+#ChibiSteveGif {
     background-image: url(../assets/ChibiSteveMinecraft.gif);
     background-size: contain;
 
     background-repeat: no-repeat;
-    width: 200px;
-    height: 176px;
+    width: 150px;
+    height: 100px;
 
     position: relative;
 
@@ -656,7 +691,7 @@ i {
 
 @keyframes mover {
     0% {
-        left: 0;
+        left: 100px;
         transform: scaleX(1);
     }
 
@@ -670,7 +705,7 @@ i {
     }
 
     100% {
-        left: 0;
+        left: 100px;
         transform: scaleX(-1);
     }
 }

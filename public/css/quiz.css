@@ -436,37 +436,14 @@ nav {
     background-color: var(--verdeOpaco);
 }
 
-#ChibiMinecraftGif {
-    background-image: url(../assets/ChibiSteveMinecraft.gif);
+#ChibiAllayGif {
+    background-image: url(../assets/ChibiAllayMinecraft.gif);
     background-size: contain;
 
     background-repeat: no-repeat;
     width: 200px;
-    height: 176px;
+    height: 200px;
 
-    position: relative;
-
-    animation: mover 8s infinite linear;
-}
-
-
-@keyframes mover {
-    0% {
-        left: 0;
-        transform: scaleX(1);
-    }
-
-    50% {
-        left: 200px;
-        transform: scaleX(1);
-    }
-
-    51% {
-        transform: scaleX(-1);
-    }
-
-    100% {
-        left: 0;
-        transform: scaleX(-1);
-    }
+    position: absolute;
+    left: 300px;
 }

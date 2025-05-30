@@ -58,72 +58,91 @@ select u.nome as 'Nome do Usuário',
     from pontuacao p
     join usuario u on p.fkUsuario = u.id
     join quiz q on q.idQuiz = p.fkQuiz;
-    
-    
+
+
 -- Dashboard
--- Select para exibir o rank dos usuários com base na pontuação total    
+-- Select para exibir o rank dos usuários com base na pontuação total
+create view exibirRanking as 
 select u.nome as ranking,
-	sum(p.pontuacao) as 'Pontuação Total'
+	sum(p.pontuacao) as pontuacaoTotal
     from pontuacao p 
     join usuario u on p.fkUsuario = u.id
     join quiz q on q.idQuiz = p.fkQuiz
     group by u.nome
     order by sum(p.pontuacao) desc;
+    
+select * from exibirRanking;
 
 -- Select para exibir a quantidade de pontos do usuário
-select u.nome as 'Nome do Usuário',
-	sum(p.pontuacao) as 'Pontuação Total'
+create view exibirPontuacao as
+select u.id as IdUsuario,
+	u.nome as Nome,
+	sum(p.pontuacao) as pontuacaoTotal
     from pontuacao p 
     join usuario u on p.fkUsuario = u.id
     join quiz q on q.idQuiz = p.fkQuiz
-    group by u.nome
-    having u.nome = 'André'; -- ${nome}
-    
-    
+    group by u.id;
+
+select * from exibirPontuacao where idUsuario = 1;
+
 -- Select para exibir a média de acertos do usuário
-select u.nome as 'Nome do Usuário',
-    q.nomeQuiz as 'Quiz',
-    round(avg(p.qtdAcertos), 1) as 'Média de Acertos'
-	from pontuacao p
-	join usuario u 
-    on p.fkUsuario = u.id
-	join quiz q 
-    on p.fkQuiz = q.idQuiz
-	group by u.nome, q.nomeQuiz
-    having u.nome = 'Duda' -- ${nome}
-	order by u.nome, avg(p.qtdAcertos) desc;
+create view mediaDeAcertos as
+    select
+		u.id as idUsuario,
+		u.nome as Nome,
+		q.nomeQuiz as NomeQuiz,
+		round(avg(p.qtdAcertos), 1) as MediaAcertos,
+		round((avg(p.qtdAcertos) / 3) * 100, 1) as Media
+		from pontuacao p
+		join usuario u on p.fkUsuario = u.id
+		join quiz q on p.fkQuiz = q.idQuiz
+		group by u.id, q.nomeQuiz;
+
+select * from mediaDeAcertos where idUsuario = 1;
 
 -- Select para exibir a quantidade de tentativas
-select u.nome as 'Nome do Usuário',
-    count(*) as 'Total de Tentativas'
+create view exibirTentativas as
+select 
+	u.id as idUsuario,
+	u.nome as Nome,
+    count(*) as tentativas
 	from pontuacao p 
 	join usuario u 
     on p.fkUsuario = u.id
 	join quiz q 
 	on q.idQuiz = p.fkQuiz
-	group by u.nome
-	having u.nome = 'André'; -- ${nome}
+	group by u.id;
     
-    
+select * from exibirTentativas where idUsuario = 1;
 
 -- Gráficos
 -- Select para exibir as tentativas de cada usuário em um gráfico de barras
-select u.nome as Nome,
+create view tentativaPorUsuario as 
+select 
+	u.id as idUsuario,
+	u.nome as Nome,
 	count(idTentativa) as Tentativas
 	from pontuacao p
     join usuario u 
   	on u.id = p.fkUsuario
-  	group by u.nome;
+  	group by u.id;
+
+select * from tentativaPorUsuario;
+
 
 
 -- Select para mostrar a quantidade de acertos por tentativa do usuário
-select u.nome as Nome,
+create view exibirAcertosPorTentativa as
+select 
+	u.id as idUsuario,
+	u.nome as Nome,
 	count(idTentativa) as Tentativa,
 	p.qtdAcertos as Acertos,
-    p.dtTentativa
+    DATE_FORMAT(p.dtTentativa, '%d/%m/%Y') AS dataTentativa
     from pontuacao p
     join usuario u
     on u.id = p.fkUsuario
-    where u.nome = 'André' -- ${nome}
-    group by u.nome, qtdAcertos, dtTentativa
+    group by u.id, u.nome, qtdAcertos, dtTentativa
     order by p.dtTentativa desc;
+    
+    select * from exibirAcertosPorTentativa where idUsuario = 1;
