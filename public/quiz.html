@@ -266,7 +266,7 @@
                                 i_4: null, i_5: `diamante`, i_6: null,
                                 i_7: null, i_8: `graveto`, i_9: null
                         },
-                        imagemResultado: "./assets/Items/276.png"
+                        imagemResultado: "./assets/Items/276.png",
                 },
                 {
                         nome: "Picareta de Diamante",
@@ -275,7 +275,7 @@
                                 i_4: null, i_5: `graveto`, i_6: null,
                                 i_7: null, i_8: `graveto`, i_9: null
                         },
-                        imagemResultado: "./assets/Items/278.png"
+                        imagemResultado: "./assets/Items/278.png",
                 },
                 {
                         nome: "Bússola",
@@ -284,7 +284,7 @@
                                 i_4: `ferro`, i_5: `redstone`, i_6: `ferro`,
                                 i_7: null, i_8: `ferro`, i_9: null
                         },
-                        imagemResultado: "./assets/Items/345.png"
+                        imagemResultado: "./assets/Items/345.png",
                 }
         ];
 
@@ -293,7 +293,9 @@
 
                 let receita = receitas[questaoAtual];
 
-                tituloQuestao.innerHTML = `Monte uma ${receita.nome}`;
+                tituloQuestao.innerHTML = `<p style="text-align: center; margin: 0px;">Monte uma ${receita.nome}</p>
+                <img src="${receita.imagemResultado}" width="70px" height="70px" style="padding-left: 225px;">
+                `;
                 resultadoCrafting.innerHTML = "";
                 resultadoQuestao.innerHTML = "";
 
@@ -438,18 +440,18 @@
         }
 
         function verificar() {
-                const receita = receitas[questaoAtual];
-                let correta = true;
+                var receita = receitas[questaoAtual];
+                var correta = true;
 
                 for (let slot in receita.slots) {
                         const slotElement = document.getElementById(slot);
                         const item = slotElement.querySelector(".item");
                         const esperado = receita.slots[slot];
 
-                        if (esperado === null && item !== null) {
+                        if (esperado == null && item != null) {
                                 correta = false;
                                 break;
-                        } else if (esperado !== null) {
+                        } else if (esperado != null) {
                                 if (!item || !item.classList.contains(esperado)) {
                                         correta = false;
                                         break;
@@ -482,8 +484,6 @@
                 } else {
                         mostrarResultadoFinal();
                 }
-
-                console.log(`Pontuação atual: ${contadorPontos}`)
         }
 
         function limparGrid() {
@@ -491,6 +491,7 @@
                         let slot = document.getElementById(`i_${i}`);
                         if (slot) slot.innerHTML = "";
                 }
+                console.log(`Pontuação atual: ${contadorPontos}`)
         }
 
 

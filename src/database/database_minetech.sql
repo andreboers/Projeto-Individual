@@ -12,7 +12,7 @@ senha varchar(50) not null
 
 insert into usuario (nome, email, senha) values
 ('André','andre@gmail.com','123'),
-('Duda','duda@gmail.com', 'Duda123'); 
+('Duda','duda@gmail.com', 'Duda123');
 
 select * from usuario;
 

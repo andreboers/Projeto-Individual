@@ -67,6 +67,12 @@ body {
     height: 170px;
     background-color: #222;
 
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 6px solid #000;
+    box-shadow: 6px 6px 0 #000;
+
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,6 +141,12 @@ body {
 
 #graficoRank {
     width: 29%;
+
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 6px solid #000;
+    box-shadow: 6px 6px 0 #000;
+
 }
 #graficoLinha {
     width: 61.5%;
@@ -150,6 +162,12 @@ body {
     width: 100%;
     height: 49%;
     background-color: #222;
+
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 6px solid #000;
+    box-shadow: 6px 6px 0 #000;
+
 }
 
 canvas {

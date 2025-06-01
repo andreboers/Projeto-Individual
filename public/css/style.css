@@ -574,10 +574,15 @@ i {
 }
 
 #divBoxSobre2 {
-    height: 530px;
-    width: 530px;
-    background-color: #222;
+    height: 500px;
+    width: 500px;
     margin-right: 100px;
+
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 7px solid #000;
+    box-shadow: 9px 9px 0 #000;
+
 }
 
 #fotoPessoal {
@@ -698,6 +703,19 @@ i {
     position: relative;
 
     animation: moverChibi 15s infinite linear;
+}
+
+#ChibiGhastGif {
+    background-image: url(../assets/ChibiGhastMinecraft.gif);
+    background-size: contain;
+
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 250px;
+
+    right: 40px;
+
+    position: absolute;
 }
 
 /* Interação do Steve */
