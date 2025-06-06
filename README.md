@@ -20,12 +20,12 @@ O sistema foi desenvolvido utilizando **Node.js** para o backend, **MySQL** para
 
 ## 🚀 Tecnologias Utilizadas
 
-- [Node.js:] Framework para desenvolvimento do backend, permitindo a criação de servidores e APIs eficientes.(https://nodejs.org/pt)
-- [MySQL]: Banco de dados relacional utilizado para armazenar os dados dos usuários, como acertos e resultados.(https://www.mysql.com/)
-- [JavaScript]: Linguagem de programação usada para a implementação das lógicas do front-end e do back-end.(https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [HTML]: Linguagem de marcação utilizada para estruturar as páginas do quiz e da dashboard.(https://www.w3schools.com/Html/)
-- [CSS]: Linguagem de estilização usada para criar o layout e o design das páginas.(https://www.w3schools.com/css/)
-- [Chart.js]: Biblioteca JavaScript para criar gráficos interativos, utilizada para exibir os resultados do quiz na dashboard.(https://www.chartjs.org/)
+- [Node.js](https://nodejs.org/pt): Framework para desenvolvimento do backend, permitindo a criação de servidores e APIs eficientes.
+- [MySQL](https://www.mysql.com/): Banco de dados relacional utilizado para armazenar os dados dos usuários, como acertos e resultados.
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript): Linguagem de programação usada para a implementação das lógicas do front-end e do back-end.
+- [HTML](https://www.w3schools.com/Html/): Linguagem de marcação utilizada para estruturar as páginas do quiz e da dashboard.
+- [CSS](https://www.w3schools.com/css/): Linguagem de estilização usada para criar o layout e o design das páginas.
+- [Chart.js](https://www.chartjs.org/): Biblioteca JavaScript para criar gráficos interativos, utilizada para exibir os resultados do quiz na dashboard.
 
 ---
 
@@ -33,13 +33,13 @@ O sistema foi desenvolvido utilizando **Node.js** para o backend, **MySQL** para
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/andreboers/Projeto-Individual.git
 
 # Acesse o diretório do projeto
-cd seu-projeto
+cd /Projeto-Individual
 
 # Instale as dependências
-npm install
+npm i
 
 # Execute a aplicação
 npm start
