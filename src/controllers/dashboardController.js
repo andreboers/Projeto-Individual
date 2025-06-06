@@ -5,7 +5,6 @@ function exibirRank(req, res) {
     dashboardModel.exibirRank().then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da função "exibirRank"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -21,7 +20,6 @@ function exibirPontuacao(req, res) {
     dashboardModel.exibirPontuacao(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da função "exibirPontuacao"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -37,7 +35,6 @@ function exibirMediaDeAcertos(req, res) {
     dashboardModel.exibirMediaDeAcertos(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da função "exibirMediaDeAcertos"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -53,7 +50,6 @@ function exibirQuantidadeDeTentativas(req, res) {
     dashboardModel.exibirQuantidadeDeTentativas(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da função "exibirQuantidadeDeTentativas"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -69,7 +65,6 @@ function tentativasPorUsuario(req, res) {
     dashboardModel.tentativasPorUsuario().then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('Entrei no if da função "tentativaPorUsuario"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -85,7 +80,6 @@ function acertosPorTentativa(req, res) {
     dashboardModel.acertosPorTentativa(id).then(function (resultado) {
         console.log(resultado)
         if (resultado.length > 0) {
-            // console.log('entrei no if da função "acertosPorTentativa"')
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")

@@ -113,7 +113,7 @@ select
 	on q.idQuiz = p.fkQuiz
 	group by u.id;
     
-select * from exibirTentativas where idUsuario = 1;
+select * from exibirTentativas where idUsuario = 6;
 
 -- Gráficos
 -- Select para exibir as tentativas de cada usuário em um gráfico de barras
@@ -129,8 +129,6 @@ select
 
 select * from tentativaPorUsuario;
 
-
-
 -- Select para mostrar a quantidade de acertos por tentativa do usuário
 create view exibirAcertosPorTentativa as
 select 
@@ -145,4 +143,4 @@ select
     group by u.id, u.nome, qtdAcertos, dtTentativa
     order by p.dtTentativa desc;
     
-    select * from exibirAcertosPorTentativa where idUsuario = 1;
+    select * from exibirAcertosPorTentativa where idUsuario = 6;

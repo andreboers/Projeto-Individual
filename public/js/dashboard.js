@@ -18,7 +18,6 @@ function exibirRank() {
             "Content-Type": "application/json"
         },
     }).then(function (resposta) {
-        // console.log("ESTOU NO THEN DO exibirMedia()!")
 
         if (resposta.ok) {
 
@@ -77,7 +76,6 @@ function exibirPontuacao() {
         }),
     })
         .then(function (resposta) {
-            // console.log("ESTOU NO THEN DO exibirMedia()!")
 
             if (resposta.ok) {
 
@@ -120,7 +118,6 @@ function exibirMediaDeAcertos() {
         }),
     })
         .then(function (resposta) {
-            // console.log("ESTOU NO THEN DO exibirMedia()!")
 
             if (resposta.ok) {
 
@@ -163,7 +160,6 @@ function exibirQuantidadeDeTentativas() {
         }),
     })
         .then(function (resposta) {
-            // console.log("ESTOU NO THEN DO exibirQuantidadeDeTentativas()!")
 
             if (resposta.ok) {
 
@@ -190,8 +186,6 @@ function exibirQuantidadeDeTentativas() {
     return false;
 }
 
-
-// Gráficos
 // Função para trazer dados de Nome e Quantidade de Tentativas de cada Usuário
 function tentativasPorUsuario() {
     fetch("/dashboard/tentativasPorUsuario", {
@@ -200,7 +194,6 @@ function tentativasPorUsuario() {
             "Content-Type": "application/json"
         },
     }).then(function (resposta) {
-        // console.log("ESTOU NO THEN DO tentativasPorUsuario()!")
 
         if (resposta.ok) {
 
